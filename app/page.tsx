@@ -19,74 +19,166 @@ function citationTitle(source?: string, title?: string): string {
   return source.replace(/\.pdf$/i, '').replace(/_/g, ' ');
 }
 
-function escapeMarkdown(value: string): string {
-  return value.replace(/\\/g, '\\\\').replace(/([`*_{}[\]])/g, '\\$1');
+type PassageBlock =
+  | { kind: 'heading'; text: string }
+  | { kind: 'label'; label: string; text: string }
+  | { kind: 'item'; text: string }
+  | { kind: 'text'; text: string };
+
+const SECTION_HEADINGS =
+  'Quick troubleshooting reference|Suggested wording for the user|Common symptoms|Information to collect|Resolution steps|Resolution and closure|Preventing repeat tickets|Related instructions|Analyst checklist|Worked example|Ticket note field|Escalate when|Good practice|Do not|Scope|Do';
+
+const INLINE_HEADINGS = SECTION_HEADINGS.replace(/\|Do not\|Scope\|Do$/, '|Scope');
+
+const LIST_HEADINGS = new Set([
+  'common symptoms',
+  'information to collect',
+  'escalate when',
+  'resolution and closure',
+  'preventing repeat tickets',
+  'analyst checklist',
+  'good practice',
+  'do',
+  'do not',
+]);
+
+function breakSentences(value: string): string {
+  let out = '';
+  let inQuote = false;
+  for (let i = 0; i < value.length; i++) {
+    const ch = value[i];
+    if (ch === '"') inQuote = !inQuote;
+    const next = value[i + 1];
+    const after = value[i + 2];
+    if (!inQuote && /[.!?]/.test(ch) && /\s/.test(next ?? '') && /[A-Z]/.test(after ?? '')) {
+      out += `${ch}\n`;
+      i += 1;
+      continue;
+    }
+    out += ch;
+  }
+  return out;
 }
 
-function citationBody(text?: string): string {
-  if (!text) return '';
-  const normalized = text
+function parsePassage(raw: string | undefined, title: string): PassageBlock[] {
+  if (!raw?.trim()) return [];
+
+  const shortTitle = title.replace(/^WI-(\d+)\s+/i, '$1 ');
+  const titlePrefix = new RegExp(
+    `^(?:WI-)?${shortTitle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*`,
+    'i',
+  );
+
+  const text = raw
+    .replace(/\u007f/g, '\n')
     .replace(/\r\n/g, '\n')
     .replace(/-(\n)(?=[A-Za-z])/g, '')
-    .replace(/[ \t]+\n/g, '\n');
+    .replace(/IT Helpdesk Work Instructions/gi, '\n')
+    .replace(/Internal use\.\s*Verify against the current version before use\./gi, '')
+    .replace(/\bPage \d+ of \d+\b/gi, '')
+    .replace(titlePrefix, '')
+    .replace(new RegExp(`(^|\\s+)(${INLINE_HEADINGS})(?=\\s|$)`, 'g'), '\n$2\n')
+    .replace(
+      /\s+((?:Default priority|Target response \/ resolution|Handled by|Related instructions|Issue reported|Checks performed|Action taken|Cause|Result):)/g,
+      '\n$1',
+    )
+    .replace(/(Symptom\s+Likely cause\s+What to do)\s+/i, '$1\n')
+    .replace(/\s+([1-9])\s+(?=[A-Z][a-z])/g, '\n$1 ')
+    .replace(/\s+(Open|During|Close)\s+(?=")/g, '\n$1 ')
+    .replace(/\s+\[\s*\]\s+/g, '\n')
+    .replace(/\s+(Do not|Do)(?=\s*(?:\n|$))/g, '\n$1\n');
+  const cleaned = breakSentences(text).replace(/[ \t]+\n/g, '\n').replace(/[ \t]{2,}/g, ' ');
 
-  const blocks: string[] = [];
-  let paragraph: string[] = [];
-  let list: string[] = [];
-  let listKind: 'bullet' | 'number' | null = null;
-
-  const flushParagraph = () => {
-    const joined = paragraph.join(' ').replace(/[ \t]{2,}/g, ' ').trim();
-    paragraph = [];
-    if (joined) blocks.push(escapeMarkdown(joined));
-  };
-  const flushList = () => {
-    if (list.length === 0) return;
-    blocks.push(list.join('\n'));
-    list = [];
-    listKind = null;
-  };
-
-  for (const rawLine of normalized.split('\n')) {
+  const blocks: PassageBlock[] = [];
+  let listMode = false;
+  for (const rawLine of cleaned.split('\n')) {
     const line = rawLine.trim();
-    if (!line) {
-      flushParagraph();
-      flushList();
+    if (!line || /^v\d+\.\d+$/i.test(line) || /^WI-\d+\s*\|/i.test(line)) continue;
+
+    const heading = line.match(new RegExp(`^(${SECTION_HEADINGS})$`, 'i'));
+    if (heading) {
+      const name = heading[1];
+      listMode = LIST_HEADINGS.has(name.toLowerCase());
+      blocks.push({ kind: 'heading', text: name });
       continue;
     }
-    const bullet = line.match(/^(?:[•●▪–—*]|-)\s+(.+)$/);
-    const numbered = line.match(/^(\d+)[.)]\s+(.+)$/);
-    if (bullet) {
-      flushParagraph();
-      if (listKind === 'number') flushList();
-      listKind = 'bullet';
-      list.push(`- ${escapeMarkdown(bullet[1])}`);
+    if (/^Symptom\s+Likely cause\s+What to do$/i.test(line)) {
+      listMode = true;
+      blocks.push({ kind: 'heading', text: 'Symptom · Likely cause · What to do' });
       continue;
     }
-    if (numbered) {
-      flushParagraph();
-      if (listKind === 'bullet') flushList();
-      listKind = 'number';
-      list.push(`${numbered[1]}. ${escapeMarkdown(numbered[2])}`);
+    const labeled =
+      line.match(
+        /^(Default priority|Target response \/ resolution|Handled by|Related instructions|Issue reported|Checks performed|Action taken|Cause|Result):\s*(.*)$/i,
+      ) || line.match(/^(Open|During|Close)\s+(".*)$/);
+    if (labeled) {
+      listMode = false;
+      blocks.push({ kind: 'label', label: labeled[1], text: labeled[2] });
       continue;
     }
-    flushList();
-    paragraph.push(line);
+    if (listMode || /^[1-9]\s+\S/.test(line)) {
+      blocks.push({ kind: 'item', text: line });
+      continue;
+    }
+    const previous = blocks[blocks.length - 1];
+    if (previous?.kind === 'item' && /^[1-9]\s/.test(previous.text)) {
+      previous.text = `${previous.text} ${line}`;
+      continue;
+    }
+    blocks.push({ kind: 'text', text: line });
   }
-  flushParagraph();
-  flushList();
-  return blocks.join('\n\n');
+  return blocks;
 }
 
-function citationMarkdown(src: Source): string {
-  const score = typeof src.score === 'number' ? src.score.toFixed(2) : '—';
-  const meta = [src.topics ? escapeMarkdown(src.topics) : '', `Page ${src.page ?? '?'} · Score ${score}`]
-    .filter(Boolean)
-    .join(' · ');
-  const parts = [`**${escapeMarkdown(citationTitle(src.source, src.title))}**`, meta];
-  const body = citationBody(src.text);
-  if (body) parts.push(body);
-  return parts.join('\n\n');
+function CitationCard({ src, rank }: { src: Source; rank: number }) {
+  const title = citationTitle(src.source, src.title);
+  const match = typeof src.score === 'number' ? `${Math.round(src.score * 100)}% match` : null;
+  const blocks = parsePassage(src.text, title);
+
+  return (
+    <li className="rounded-xl border border-slate-200 bg-white px-3 py-2.5">
+      <div className="flex items-start justify-between gap-3">
+        <p className="text-sm font-bold leading-snug text-desk-ink">
+          <span className="mr-2 text-desk-teal">{rank}.</span>
+          {title}
+        </p>
+        <p className="shrink-0 text-right text-xs leading-5 text-slate-500">
+          Page {src.page ?? '?'}
+          {match && <span className="mt-0.5 block font-semibold text-desk-blue">{match}</span>}
+        </p>
+      </div>
+      {blocks.length > 0 && (
+        <div className="mt-2 space-y-1.5 border-t border-slate-100 pt-2 text-sm leading-relaxed text-slate-700">
+          {blocks.map((block, index) => {
+            if (block.kind === 'heading') {
+              return (
+                <p key={index} className="pt-1 text-xs font-bold uppercase tracking-wide text-desk-teal">
+                  {block.text}
+                </p>
+              );
+            }
+            if (block.kind === 'label') {
+              return (
+                <p key={index}>
+                  <span className="font-semibold text-desk-blue">{block.label}. </span>
+                  {block.text}
+                </p>
+              );
+            }
+            if (block.kind === 'item') {
+              const numbered = /^[1-9]\s/.test(block.text);
+              return (
+                <p key={index} className={numbered ? 'pl-1' : 'pl-4'}>
+                  {numbered ? block.text : `• ${block.text}`}
+                </p>
+              );
+            }
+            return <p key={index}>{block.text}</p>;
+          })}
+        </div>
+      )}
+    </li>
+  );
 }
 
 type ToolInvocation = {
@@ -131,19 +223,19 @@ const markdownComponents = {
   ),
   li: ({ children }: { children?: ReactNode }) => <li className="pl-1">{children}</li>,
   strong: ({ children }: { children?: ReactNode }) => (
-    <strong className="font-bold text-bir-blue">{children}</strong>
+    <strong className="font-bold text-desk-blue">{children}</strong>
   ),
   h1: ({ children }: { children?: ReactNode }) => (
-    <h2 className="mb-2 text-base font-bold text-bir-blue">{children}</h2>
+    <h2 className="mb-2 text-base font-bold text-desk-blue">{children}</h2>
   ),
   h2: ({ children }: { children?: ReactNode }) => (
-    <h3 className="mb-2 text-sm font-bold text-bir-blue">{children}</h3>
+    <h3 className="mb-2 text-sm font-bold text-desk-blue">{children}</h3>
   ),
   h3: ({ children }: { children?: ReactNode }) => (
-    <h4 className="mb-2 text-sm font-bold text-bir-navy">{children}</h4>
+    <h4 className="mb-2 text-sm font-bold text-desk-ink">{children}</h4>
   ),
   a: ({ href, children }: { href?: string; children?: ReactNode }) => (
-    <a href={href} className="font-semibold text-bir-teal underline" target="_blank" rel="noreferrer">
+    <a href={href} className="font-semibold text-desk-teal underline" target="_blank" rel="noreferrer">
       {children}
     </a>
   ),
@@ -151,7 +243,7 @@ const markdownComponents = {
 
 function AssistantMessage({ content }: { content: string }) {
   return (
-    <div className="max-w-[85%] rounded-2xl border border-slate-200 border-l-4 border-l-bir-teal bg-white px-4 py-3 text-sm leading-relaxed [&_li>p]:mb-0 [&_li>p]:inline">
+    <div className="max-w-[85%] rounded-2xl border border-slate-200 border-l-4 border-l-desk-teal bg-white px-4 py-3 text-sm leading-relaxed [&_li>p]:mb-0 [&_li>p]:inline">
       <ReactMarkdown components={markdownComponents}>{content}</ReactMarkdown>
     </div>
   );
@@ -160,35 +252,16 @@ function AssistantMessage({ content }: { content: string }) {
 const greeting = {
   id: 'greeting',
   role: 'assistant' as const,
-  content: `Hello. I'm **ChatBIR**, your BIR-tual Assistant for BIR processes and requirements.
+  content: `Hey. I'm **AI-Tee**, your AI buddy for IT helpdesk concerns. Hold music not included.
 
-I can help you look up:
+Bring me the usual suspects:
 
-- Registration steps, including TIN and ORUS
-- Filing and payment
-- Documents and requirements for BIR transactions
+- Locked accounts, forgotten passwords, and mystery error codes
+- Email, Wi-Fi, VPN, and the classic "it worked yesterday"
+- Printers, software, and what to try before you open a ticket
 
-Ask a question in your own words. I'll answer from the taxpayer guides, and you can open **Sources** under the reply to see where it came from.`,
+Ask in plain language. I'll lead with the fix. Open **Sources** under the reply to see the work instruction it came from.`,
 };
-
-function FlagStripe() {
-  return (
-    <div className="flex h-3 w-full overflow-hidden" aria-hidden="true">
-      <div
-        className="h-full flex-1 bg-bir-gold"
-        style={{ clipPath: 'polygon(0 0, 100% 0, 82% 100%, 0 100%)' }}
-      />
-      <div
-        className="-ml-[8%] h-full flex-1 bg-bir-navy"
-        style={{ clipPath: 'polygon(18% 0, 100% 0, 82% 100%, 0 100%)' }}
-      />
-      <div
-        className="-ml-[8%] h-full flex-1 bg-bir-red"
-        style={{ clipPath: 'polygon(18% 0, 100% 0, 100% 100%, 0 100%)' }}
-      />
-    </div>
-  );
-}
 
 export default function Page() {
   const { messages, input, handleInputChange, handleSubmit, status, error } = useChat({
@@ -214,21 +287,22 @@ export default function Page() {
 
   return (
     <div className="flex h-screen flex-col">
-      <FlagStripe />
-      <header className="bg-bir-blue text-white">
+      <header className="bg-desk-ink text-white">
         <div className="mx-auto flex max-w-3xl items-center justify-between gap-4 px-6 py-3">
           <div>
-            <h1 className="text-3xl font-extrabold tracking-wide text-bir-yellow">ChatBIR</h1>
-            <p className="mt-1 text-base font-semibold">Your BIR-tual Assistant for BIR Processes and Requirements</p>
+            <h1 className="text-3xl font-extrabold tracking-wide text-desk-amber">AI-Tee</h1>
+            <p className="mt-1 text-base font-semibold text-slate-100">
+              Your AI buddy for IT helpdesk concerns
+            </p>
           </div>
           <img
-            src="/chatbir-logo.jpg?v=2"
-            alt="ChatBIR"
-            className="h-20 w-20 shrink-0 rounded-full bg-white object-cover"
+            src="/aitee-logo.jpg"
+            alt="AI-Tee"
+            className="h-24 w-24 shrink-0 rounded-full bg-white object-cover"
           />
         </div>
       </header>
-      <div className="h-2 bg-bir-yellow" aria-hidden="true" />
+      <div className="h-1.5 bg-desk-teal" aria-hidden="true" />
 
       <main className="mx-auto flex w-full max-w-3xl min-h-0 flex-1 flex-col px-6 py-6">
         <ul ref={listRef} className="mb-6 min-h-0 flex-1 space-y-4 overflow-y-auto">
@@ -245,7 +319,7 @@ export default function Page() {
               }
             >
               {m.role === 'user' ? (
-                <span className="inline-block max-w-[85%] rounded-2xl bg-bir-blue px-4 py-2 text-white">
+                <span className="inline-block max-w-[85%] rounded-2xl bg-desk-blue px-4 py-2 text-white">
                   {m.content}
                 </span>
               ) : (
@@ -255,33 +329,26 @@ export default function Page() {
               {sourceGroups.map((group) => (
                 <details
                   key={group.id}
-                  className="mt-2 max-w-[85%] text-sm text-slate-600"
+                  className="mt-2 w-full max-w-[85%] text-sm text-slate-600"
                 >
-                  <summary className="inline-block cursor-pointer rounded-full bg-bir-teal px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+                  <summary className="inline-block cursor-pointer rounded-full bg-desk-teal px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
                     Sources ({group.sources.length})
                   </summary>
-                  <ul className="mt-2 space-y-2">
+                  <ol className="mt-2 space-y-2">
                     {group.sources.map((src, i) => (
-                      <li
-                        key={i}
-                        className="border-l-2 border-bir-yellow bg-white py-2 pl-3"
-                      >
-                        <div className="text-sm leading-relaxed text-slate-700 [&_li>p]:mb-0 [&_li>p]:inline [&_p:first-child]:text-xs [&_p:nth-child(2)]:text-xs [&_p:nth-child(2)]:text-slate-500">
-                          <ReactMarkdown components={markdownComponents}>{citationMarkdown(src)}</ReactMarkdown>
-                        </div>
-                      </li>
+                      <CitationCard key={i} src={src} rank={i + 1} />
                     ))}
-                  </ul>
+                  </ol>
                 </details>
               ))}
             </li>
             );
           })}
           {busy && !messages.at(-1)?.content && (
-            <li className="text-sm font-semibold text-bir-teal">…</li>
+            <li className="text-sm font-semibold text-desk-teal">…</li>
           )}
           {error && (
-            <li className="text-sm font-semibold text-bir-red">
+            <li className="text-sm font-semibold text-desk-coral">
               Error: {error.message}
             </li>
           )}
@@ -291,23 +358,22 @@ export default function Page() {
           <input
             value={input}
             onChange={handleInputChange}
-            className="flex-1 rounded-full border border-slate-300 bg-white px-4 py-2 focus:border-bir-teal focus:outline-none"
-            placeholder="Ask about registration, filing, or payment…"
+            className="flex-1 rounded-full border border-slate-300 bg-white px-4 py-2 focus:border-desk-teal focus:outline-none"
+            placeholder="Printer on strike? VPN ghosting you? Ask away…"
             disabled={busy}
           />
           <button
             type="submit"
             disabled={!input || busy}
-            className="rounded-full bg-bir-teal px-5 py-2 font-bold text-white disabled:opacity-40"
+            className="rounded-full bg-desk-teal px-5 py-2 font-bold text-white disabled:opacity-40"
           >
             Send
           </button>
         </form>
         <p className="mt-3 text-center text-xs text-slate-500">
-          Responses are generated by AI. Please confirm the accuracy of each response.
+          General IT guidance. Confirm anything that changes access, data, or company policy.
         </p>
       </main>
-      <FlagStripe />
     </div>
   );
 }

@@ -20,22 +20,27 @@ export async function POST(req: Request) {
   const result = streamText({
     model: openai('gpt-4o-mini'),
     system:
-      'You are ChatBIR, a helpful, friendly, and witty assistant for Philippine BIR taxpayer services. ' +
-      'Use the getInformation tool whenever the user asks a question whose ' +
-      'answer might be in the indexed documents. If those documents do not ' +
-      'cover something, say so directly rather than guessing. ' +
-      'Do not answer questions that are not about BIR taxpayer services, and encourage the user to ask a question that is about BIR services. ' +
+      'You are AI-Tee, a helpful, friendly, and witty IT helpdesk assistant. ' +
+      'Help with everyday IT concerns: accounts and passwords, email, Wi-Fi, VPN, printers, software, hardware, error messages, and what to try before opening a ticket. ' +
+      'Sound like a sharp colleague: warm, clear, and lightly funny. Never mock the person. Explain jargon in plain language. ' +
+      'Lead with the most useful next step, then the short why. ' +
+      'The indexed documents are IT helpdesk work instructions. ' +
+      'Call getInformation before you answer, so the user can open Sources and see the top matching passages. ' +
+      'Follow the steps, identity checks, and escalation rules in what the tool returns. ' +
+      'If those documents do not cover the question, say so and give general IT helpdesk guidance rather than guessing. ' +
+      'Do not cite a document that does not actually answer the question. ' +
+      'If the question is outside IT helpdesk work, reply in one friendly line and invite an IT question. ' +
       'Write answers in Markdown that is easy to scan: short paragraphs, ' +
-      'and a bullet or numbered list when you list documents, steps, or requirements. ' +
+      'and a bullet or numbered list when you list steps, checks, or options. ' +
       'Put each list item on its own line. ' +
-      'These are the indexed documents. Use them to decide where an answer should come from, then call getInformation:\n' +
+      'These are the indexed documents. Use them to choose the instruction that fits:\n' +
       catalogPrompt() +
       '\nWhen you answer, name the document title returned by the tool.',
     messages,
     tools: {
       getInformation: tool({
         description:
-          'Look up information from the indexed BIR taxpayer documents. Use this whenever the user asks a substantive question about BIR services, processes, or related requirements.',
+          'Search the indexed IT helpdesk work instructions and return the top matching passages. Call this before answering so those passages can be shown as Sources.',
         parameters: z.object({
           query: z
             .string()
@@ -67,6 +72,12 @@ export async function POST(req: Request) {
       }),
     },
     maxSteps: 3,
+    prepareStep: async ({ stepNumber }) => {
+      if (stepNumber === 0) {
+        return { toolChoice: { type: 'tool', toolName: 'getInformation' } };
+      }
+      return { toolChoice: 'none' };
+    },
   });
 
   return result.toDataStreamResponse();

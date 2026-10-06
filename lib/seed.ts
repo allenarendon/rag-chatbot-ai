@@ -10,6 +10,7 @@
 import { config as loadEnv } from 'dotenv';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import zlib from 'node:zlib';
 
 // Next.js reads .env.local automatically; this script does not.
 loadEnv({ path: path.join(process.cwd(), '.env.local') });
@@ -19,6 +20,14 @@ import { openai } from '@ai-sdk/openai';
 // pdf-parse uses CommonJS; default-import the parser fn
 import pdfParse from 'pdf-parse';
 import { embeddingPrefix, sourceEntry } from './sources';
+
+// pdf-parse rejects in the background on PDFs with a broken xref table.
+process.on('unhandledRejection', (reason) => {
+  const message = reason instanceof Error ? reason.message : String(reason);
+  if (/xref|format|illegal character/i.test(message)) return;
+  console.error(reason);
+  process.exit(1);
+});
 
 const DATA_DIR = path.join(process.cwd(), 'data');
 const CHUNK_SIZE = 800;
@@ -82,16 +91,85 @@ async function listPdfFiles(dir: string): Promise<string[]> {
     .sort((a, b) => path.basename(a).localeCompare(path.basename(b)));
 }
 
+function ascii85Decode(input: string): Buffer {
+  let str = input.replace(/\s+/g, '');
+  if (str.endsWith('~>')) str = str.slice(0, -2);
+  const out: number[] = [];
+  let i = 0;
+  while (i < str.length) {
+    if (str[i] === 'z') {
+      out.push(0, 0, 0, 0);
+      i++;
+      continue;
+    }
+    const chunk = str.slice(i, i + 5);
+    i += chunk.length;
+    let value = 0;
+    for (let j = 0; j < 5; j++) {
+      const code = j < chunk.length ? chunk.charCodeAt(j) : 117;
+      value = value * 85 + (code - 33);
+    }
+    const bytes = chunk.length < 5 ? chunk.length - 1 : 4;
+    const decoded = [(value >>> 24) & 255, (value >>> 16) & 255, (value >>> 8) & 255, value & 255];
+    for (let j = 0; j < bytes; j++) out.push(decoded[j]);
+  }
+  return Buffer.from(out);
+}
+
+function unescapePdfString(raw: string): string {
+  return raw
+    .replace(/\\([0-7]{1,3})/g, (_, oct: string) => String.fromCharCode(parseInt(oct, 8)))
+    .replace(/\\n/g, '\n')
+    .replace(/\\r/g, '')
+    .replace(/\\([()\\])/g, '$1');
+}
+
+/**
+ * Some of these work-instruction PDFs have a broken xref table, so pdf-parse
+ * cannot read them. The page text is still in ASCII85 + Flate streams.
+ */
+function pagesFromContentStreams(buf: Buffer): string[] {
+  const source = buf.toString('latin1');
+  const streams = /stream\r?\n([\s\S]*?)endstream/g;
+  const pages: string[] = [];
+  let match: RegExpExecArray | null;
+  while ((match = streams.exec(source))) {
+    try {
+      const content = zlib.inflateSync(ascii85Decode(match[1])).toString('latin1');
+      const texts: string[] = [];
+      const strings = /\((?:\\.|[^\\)])*\)/g;
+      let text: RegExpExecArray | null;
+      while ((text = strings.exec(content))) {
+        const value = unescapePdfString(text[0].slice(1, -1)).trim();
+        if (value) texts.push(value);
+      }
+      const page = texts.join(' ').replace(/\u007f/g, '\n').replace(/[ \t]+/g, ' ').trim();
+      if (page) pages.push(page);
+    } catch {
+      // Font or metadata streams are not page text.
+    }
+  }
+  return pages;
+}
+
 async function loadAndChunkPdf(filePath: string): Promise<Chunk[]> {
   const source = path.basename(filePath);
   const buf = await fs.readFile(filePath);
-  const parsed = await pdfParse(buf);
-  // pdf-parse returns the whole document as one string. We approximate
-  // page numbers by splitting on form-feed (which pdf-parse inserts between pages).
-  const pages = parsed.text.split('\f');
+  let pages: string[] = [];
+  try {
+    const parsed = await pdfParse(buf);
+    pages = parsed.text
+      .split('\f')
+      .map((page) => page.trim())
+      .filter((page) => page.length > 0);
+  } catch {
+    pages = [];
+  }
+  if (pages.join('').trim().length < 200) {
+    pages = pagesFromContentStreams(buf);
+  }
   const chunks: Array<Pick<Chunk, 'text' | 'page'>> = [];
   pages.forEach((pageText, pageIdx) => {
-    if (pageText.trim().length === 0) return;
     chunks.push(...chunkText(pageText.trim(), pageIdx + 1));
   });
   return chunks.map((chunk, index) => ({ ...chunk, source, index }));
@@ -131,6 +209,8 @@ async function main() {
   console.log(`  produced ${chunks.length} chunks from ${pdfPaths.length} PDF(s)`);
 
   const index = new Index();
+  console.log('Clearing the vector index so sources match the current documents…');
+  await index.reset();
   const batches = batchChunks(chunks);
   console.log(`Embedding ${chunks.length} chunks in ${batches.length} batch(es)…`);
   for (let b = 0; b < batches.length; b++) {

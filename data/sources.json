@@ -1,775 +1,1064 @@
 {
-  "01_Citizens_Charter_2026.pdf": {
-    "title": "BIR Citizen's Charter 2026, 1st Edition",
-    "documentType": "Citizen's Charter",
-    "reference": "Citizen's Charter 2026, 1st Edition",
-    "issued": "2026",
+  "WI-01_Password_Reset_and_Account_Lockout.pdf": {
+    "title": "WI-01 Password Reset and Account Lockout",
+    "documentType": "Work instruction",
+    "reference": "WI-01",
+    "issued": "v1.0",
     "searchable": true,
-    "summary": "Service standards for BIR external and internal services. Each external service lists the office or division, classification, who may avail, where to avail, operating hours, checklist of requirements, client steps, fees, and processing time. The charter also states the BIR mandate under Section 2 of the National Internal Revenue Code of 1997, its mission, Aspiration 2028, and the PLEDGE service pledge. Use this document for walk-in and online RDO procedures, documentary requirements, fees, and processing time.",
+    "summary": "Use this instruction when a user cannot sign in because of a forgotten or expired password, a locked account, or a failed multi-factor authentication (MFA) prompt. Priority: P3 Medium (P2 if a VIP or a business-critical role) Response target: Respond in 15 min / resolve in 30 min Handled by: Tier 1 Related: WI-10 Security Incidents, WI-11 Mobile Devices, WI-09 Access Requests",
     "topics": [
-      "Citizen's Charter service standards",
-      "Revenue District Office external services",
-      "TIN registration",
-      "new business registration",
-      "Authority to Print",
-      "books of accounts",
-      "ONETT computation sheet",
-      "eCAR",
-      "business closure and tax clearance",
-      "fees and processing time"
+      "Password Reset and Account Lockout",
+      "IT helpdesk",
+      "WI-01"
     ],
     "sections": [
       {
-        "heading": "Revenue District Office – External Services",
+        "heading": "Common symptoms",
         "items": [
-          "Approval of application for TIN of a local employee, online through ORUS",
-          "Application for TIN of a local employee, manual walk-in processing",
-          "Application for TIN of a local employee, bulk of six or more applications, manual walk-in",
-          "Application for TIN of an Executive Order No. 98 or one-time transaction taxpayer, manual walk-in",
-          "Application for TIN of an Executive Order No. 98 or one-time transaction taxpayer, online through ORUS",
-          "TIN and registration of an individual new business registrant, head office only, including facilities, together with Authority to Print, online through ORUS",
-          "TIN and registration of an individual new business registrant, head office only, including facilities, together with Authority to Print, manual walk-in",
-          "TIN and registration of an individual new business registrant, head office only, including facilities, together with Authority to Print, bulk of six or more, manual walk-in",
-          "TIN and registration of a non-individual new business registrant, head office only, including facilities, together with Authority to Print, online through ORUS",
-          "TIN and registration of a non-individual new business registrant, head office only, including facilities, together with Authority to Print, manual walk-in",
-          "TIN and registration of a non-individual new business registrant, head office only, including facilities, together with Authority to Print, bulk of six or more, manual walk-in",
-          "Online application for registration of a nonresident foreign corporation in general",
-          "Registration of branches, individual or non-individual",
-          "Registration of branches, individual or non-individual, bulk of six or more",
-          "Application for Authority to Print invoices",
-          "Application for Authority to Print invoices, bulk of six or more",
-          "Registration of books of accounts",
-          "Registration of books of accounts, bulk of six or more",
-          "Certification of Certificate of Registration, Authority to Print, or TIN card",
-          "Certificate of exemption for scholarship and job or livelihood programs",
-          "Cancellation of Permit to Use a point-of-sale machine or cash register machine",
-          "Registration of a computerized accounting system, computerized books of accounts, electronic storage system, middleware, and similar systems",
-          "Registration of a computerized accounting system or computerized books of accounts through ORUS",
-          "Account enrollment with the enhanced Electronic Accreditation and Registration system",
-          "Permit to Use a cash register machine, point-of-sale machine, other sales machines, sales receipting software, or special purpose machine",
-          "Application for a TIN card",
-          "Permit to Use loose-leaf books of accounts, invoices, or other accounting records",
-          "Closure of a head office subject to audit, with issuance of tax clearance, excluding the audit processing time",
-          "Closure of a head office not subject to audit, with issuance of tax clearance",
-          "Closure of a branch with tax liabilities",
-          "Closure of a branch without tax liabilities",
-          "Approved ONETT Computation Sheet for onerous transfer of real property, taxable and exempt",
-          "Approved ONETT Computation Sheet for onerous transfer of shares of stock not traded through a local stock exchange",
-          "Approved ONETT Computation Sheet for donation of real property",
-          "Approved ONETT Computation Sheet for donation of personal property",
-          "Approved ONETT Computation Sheet of tax due on the estate of a decedent",
-          "Electronic Certificate Authorizing Registration for sale, donation, or estate, original issuance",
-          "Delinquency Verification Certificate",
-          "Tax Compliance Verification Certificate",
-          "Delinquency Verification Report"
+          "\"Incorrect password\" or \"Account locked\" message at sign-in",
+          "Password expired and the change prompt fails",
+          "MFA code not received, or authenticator app lost or replaced",
+          "Repeated prompts to sign in to Microsoft 365 or other apps"
         ]
       },
       {
-        "heading": "Revenue Regional Office – External Services",
+        "heading": "Information to collect",
         "items": [
-          "Certificate of Employment for resigned, transferred, retired, or deceased employees whose records are still in the active file",
-          "Certificate of Employment for resigned, transferred, retired, or deceased employees whose records are in inactive storage",
-          "Survivorship benefits for deceased employees",
-          "Tax clearance for bidding purposes",
-          "Tax clearance certificate for general purpose",
-          "Service record for resigned, transferred, retired, or deceased employees, active file",
-          "Service record for resigned, transferred, retired, or deceased employees, inactive file"
+          "Full name, username, and employee ID",
+          "Which system or application shows the error, and the exact message",
+          "Device in use and whether it is on the corporate network or remote",
+          "When the problem started, and whether the password was changed recently"
         ]
       },
       {
-        "heading": "National Office – External Services",
+        "heading": "Resolution steps",
         "items": [
-          "Permit to buy, sell, commingle, or transfer bioethanol fuel",
-          "Permit to import anhydrous ethanol",
-          "Permit to import Jet A-1 fuel",
-          "Disposal of contaminated petroleum products and backloading of off-specs petroleum products",
-          "Conversion of tanks",
-          "Authority to Release Imported Goods on excisable products",
-          "Permit to dismantle, install, or amend a manufacturing plant",
-          "Permit to operate as buyer or user of denatured alcohol to manufacture excisable products",
-          "Permit to operate as a distillery and producer of bio-ethanol, within and outside Metro Manila",
-          "Permit to operate as importer or manufacturer of alcohol products, non-essential beverages, and sweetened beverages, within and outside Metro Manila",
-          "Permit to operate as storage of alcohol or depot, within and outside Metro Manila",
-          "Registration of product brands",
-          "Internal revenue strip stamps and labels for alcohol products",
-          "Permit to operate as manufacturer or importer of tobacco products or mineral products, within and outside Metro Manila",
-          "Permit to import raw materials and mechanical contrivances for tobacco manufacturers",
-          "Permit to register cigarette products",
-          "Tax clearance or Certificate Authorizing Registration for stock transactions not traded through the local stock exchange, Large Taxpayers National Office",
-          "Electronic Certificate Authorizing Registration and ONETT Computation Sheet for sale, transfer, or donation of shares or properties, for Large Taxpayers National Office and Large Taxpayers Divisions Cebu and Davao",
-          "Certification of payment",
-          "Certified true copy of documents filed by large taxpayers",
-          "Tax exemption on separation benefits of employees of large taxpayers",
-          "Certificate of no similar claim for refund",
-          "Destruction of expired, obsolete, or damaged inventory of goods",
-          "Delinquency Verification Certificate for VAT refund or VAT credit claims, including Large Taxpayers Divisions Cebu and Davao",
-          "Tax clearance for bidding purposes and general-purpose tax clearance for large taxpayers",
-          "Tax debit memo",
-          "Permit to operate as importer, dealer, trader, or manufacturer of petroleum or automobile products, within and outside Metro Manila",
-          "Renewal of permit to operate",
-          "Permit to operate a storage facility, additional storage tanks, or to blend biofuel-blended diesel or gasoline",
-          "Analysis of BIR accountable forms",
-          "Approval of formulas for denatured alcohol",
-          "Sampling and analysis of alcohol and denaturants during denaturing",
-          "Permit to export excisable articles",
-          "Product Replenishment Debit Memo",
-          "Official Delivery Invoice for molasses",
-          "GUIA",
-          "Excise Taxpayer Removal Declaration",
-          "Withdrawal Certificate",
-          "Denaturing of alcohol, anhydrous bioethanol, and petroleum products in bulk",
-          "Certification of taxpayers under the Large Taxpayers Service",
-          "Certified true copies of official register books, including bulk requests",
-          "Large Taxpayers Service data or information",
-          "Ruling on local purchase of a motor vehicle",
-          "VAT Certificate and VAT Identification Card",
-          "Tax treaty relief applications and requests for confirmation, evaluation only",
-          "Tax Residency Certificate",
-          "Tax sparing, evaluation only",
-          "Survivorship benefits and Certificate of Employment for resigned, transferred, retired, or deceased employees",
-          "Filing of confidential information",
-          "Certificate of tax delinquency",
-          "Tax credit certificate or cash refund under Revenue Administrative Order No. 1-2019",
-          "Requisitions for internal revenue labels for private importers and manufacturers",
-          "Tax clearance for bidding by a non-resident foreign corporation or a non-resident alien not engaged in trade or business",
-          "Delinquency Verification Certificate for the Commission on Appointments, Civil Service Award, or NBI, and for VAT refund",
-          "Tax clearance certificate for government-owned or controlled corporations",
-          "Accreditation of additional bank branches",
-          "Validation of successfully uploaded over-the-counter and electronic transactions of authorized agent banks for Bureau of the Treasury transaction fees",
-          "NGO application for certification as a PCNC-accredited donee institution",
-          "Requests for ruling, legal opinion, and VAT refund claims of RDO, Large Taxpayers Service, and VAT Credit Audit Division",
-          "Service record for resigned, transferred, retired, or deceased employees",
-          "Subpoenas, memoranda, and request letters from other government agencies",
-          "Lending of books and issuances to researchers who are not BIR employees",
-          "Certification or certified photocopy of documents and revenue issuances, walk-in, and online copy of revenue issuances",
-          "Tax clearance for bidding purposes for Large Taxpayers Divisions Cebu and Davao",
-          "Withdrawal, discontinuance, or transfer of applications",
-          "Queries raised by phone, chat, or email with the Customer Assistance Division",
-          "Purchase order for issuance of community tax certificates to local government units"
+          "1 Verify identity. Confirm the caller using at least two items from the approved verification list (employee ID, manager name, date of birth on file, callback to the registered number). Never reset on the strength of an email request alone.",
+          "2 Check account status. Open the directory console (Active Directory or Entra ID). Check if the account is locked, disabled, expired, or flagged for risky sign-in.",
+          "3 Find the lockout source. If the account is locked, review the lockout source (stale mobile mail profile, mapped drive, saved credential, scheduled task) so it does not lock again.",
+          "4 Unlock or reset. Unlock the account, or use the self-service reset portal where possible. If you must reset, set a temporary password and require a change at next sign-in.",
+          "5 Deliver credentials safely. Give the temporary password by phone or to the registered mobile number. Never put passwords in the ticket, chat, or email.",
+          "6 Handle MFA issues. For a lost or replaced phone, verify identity, remove the old authentication method, and guide the user to re-register. Issue a temporary access pass if policy allows.",
+          "7 Confirm sign-in works. Stay with the user until sign-in succeeds on the device and on one cloud application. Ask them to update saved passwords on phones and mapped drives."
         ]
       },
       {
-        "heading": "Internal services and other contents",
+        "heading": "Escalate when",
         "items": [
-          "Revenue Regional Office internal service: local learning and development programs",
-          "National Office internal services include administrative compliance for tax clearance and permits, audit-document requests, product identification and tax classification, payment-record corrections, double filing and double payment cancellation, transfer of payment, requisition of BIR forms, validation of tax credit certificates, RELIEF data, outstanding tax liability certificates, contract review, legal opinions, drafting of revenue issuances, case-status certifications, system access, cleared accountabilities, certificates of employment and service records for active employees, trainings and scholarships, allotment certification, and messengerial or mailing requests",
-          "Feedback and complaints mechanism",
-          "Directory of revenue regional and district offices"
+          "Account shows signs of compromise (impossible-travel alerts, unknown devices, forwarding rules): raise a security incident (see WI-10)",
+          "Account is disabled by HR or Security and you did not disable it",
+          "Directory sync errors, or the reset fails with a system error"
         ]
       }
     ]
   },
-  "02_ORUS_User_Guide_2024.pdf": {
-    "title": "ORUS Taxpayer Guide: Application for TIN Issuance under Executive Order No. 98",
-    "documentType": "Taxpayer guide",
-    "reference": "ORUS Application for TIN Issuance of E.O. 98 Taxpayer Guide",
-    "issued": "2024",
+  "WI-02_New_User_Onboarding_and_Account_Setup.pdf": {
+    "title": "WI-02 New User Onboarding and Account Setup",
+    "documentType": "Work instruction",
+    "reference": "WI-02",
+    "issued": "v1.0",
     "searchable": true,
-    "summary": "Step-by-step ORUS guide for a Filipino citizen who does not yet have a TIN and needs one under Executive Order No. 98. It covers account creation, who must secure this TIN, account verification within 24 hours, and the BIR Form 1904 application through login. It is not a guide for business registration, books of accounts, or updating an existing business.",
+    "summary": "Use this instruction for a new employee, contractor, or intern request raised by HR or a hiring manager. All new-hire requests must be approved before work starts. Priority: P3 Medium (set due date to the start date) Response target: Ready 1 business day before start date Handled by: Tier 2 Related: WI-09 Access Requests, WI-17 Offboarding, WI-18 Asset Management",
     "topics": [
-      "ORUS",
-      "Executive Order No. 98",
-      "TIN issuance without an existing TIN",
-      "account creation and verification",
-      "BIR Form 1904",
-      "one-time taxpayer"
+      "New User Onboarding and Account Setup",
+      "IT helpdesk",
+      "WI-02"
     ],
     "sections": [
       {
-        "heading": "Who must secure a TIN under E.O. 98",
+        "heading": "Common symptoms",
         "items": [
-          "Dealings with banks",
-          "Dealings with government agencies",
-          "First-time job seeker",
-          "A person with no existing TIN or BIR record creates an ORUS account with one permanent or company email",
-          "A person who already has a TIN must use the permanent email already in the BIR registration record"
+          "Onboarding request form submitted by HR",
+          "Manager requests equipment and access for an upcoming start date"
         ]
       },
       {
-        "heading": "Account creation",
+        "heading": "Information to collect",
         "items": [
-          "Open https://orus.bir.gov.ph from www.bir.gov.ph or directly",
-          "Choose New Registration, user type As an Individual, then Create an Account",
-          "Agree to the Terms of Service and register as Taxpayer",
-          "Choose Without Existing TIN and agree to the pop-up",
-          "User Type – Transaction: Get TIN for Filipino Citizen – E.O. 98 / One-Time Taxpayer",
-          "Taxpayer Type: Executive Order No. 98 – Filipino Citizen (EO98FC)",
-          "Required account fields include email, password, confirm password, and reCAPTCHA",
-          "Password must be 12 to 128 characters, must not match previous passwords or contain the username or full name, and must include an uppercase letter, a lowercase letter, a number, and a special character",
-          "The email becomes the ORUS username, the permanent taxpayer email, and the address that receives the TIN after approval. Changing it is not available online"
+          "Full legal name, preferred name, job title, department, and manager",
+          "Start date, work location, and employment type (staff, contractor, intern)",
+          "Required applications, shared folders, and groups (use the role template if one exists)",
+          "Hardware needs (laptop, monitor, phone, headset) and any special requirements"
         ]
       },
       {
-        "heading": "Account verification",
+        "heading": "Resolution steps",
         "items": [
-          "After Register, verify the account from the email link within 24 hours",
-          "The verification link is on https://orus.bir.gov.ph",
-          "If the user did not start the transaction, do not click the link and report it to contact_us@bir.gov.ph",
-          "Concerns: telephone 8538-3200"
+          "1 Validate the request. Confirm the HR approval and manager sign-off are attached. Check the start date and that no duplicate account exists.",
+          "2 Create the identity. Create the user in the directory using the naming standard. Set the manager, department, job title, and location attributes.",
+          "3 Assign licences and mailbox. Assign the licence bundle for the role. Confirm the mailbox is created and added to the correct distribution lists and teams.",
+          "4 Apply role-based access. Add the user to the security groups defined for the role template. Anything outside the template needs separate data-owner approval (see WI-09).",
+          "5 Prepare the device. Image the laptop, enrol it in device management, apply encryption, and install the standard software. Record the asset tag and serial number.",
+          "6 Set up MFA and credentials. Generate a temporary password and share it with the manager by an approved secure method. Schedule MFA enrolment for the first day.",
+          "7 Hand over and verify. On day one, confirm the user can sign in, send email, reach the VPN and key applications, and print. Walk through the self-service portal and how to raise tickets."
         ]
       },
       {
-        "heading": "Application for TIN issuance",
+        "heading": "Escalate when",
         "items": [
-          "Log in and choose New Registration, As an Individual, then Fill-up Registration Form (1904)",
-          "Complete Taxpayer Information and Residence Address",
-          "Purpose of TIN Application applies only to One-Time Transactions – Filipino Citizen (ONETFC); otherwise continue",
-          "Authorized Representative: No, or Yes with the required fields",
-          "Spouse Information is required only for married individuals",
-          "Upload attachments as JPEG, PNG, or PDF, each file not exceeding 25 MB",
-          "Review the summary, accept the caveats, and submit. The pop-up shows the Application Reference Number, date, and the Revenue District Office that will process it",
-          "Email is sent on submission and on approval. After approval, the TIN appears on the Profile tab with registered name, branch code, and RDO code",
-          "If denied, complete the findings in Reason or Comment for Denial and resubmit"
+          "Approvals are missing or unclear, or access requested conflicts with segregation-of-duties rules",
+          "Hardware is not available in time for the start date",
+          "Role template does not exist or is out of date"
         ]
       }
     ]
   },
-  "03_Books_of_Accounts_ORUS_RMC_04_2026.pdf": {
-    "title": "Clarification on Mandatory ORUS Registration of Permanently Bound Loose-Leaf and Computerized Books of Accounts (RMC No. 4-2026)",
-    "documentType": "Revenue Memorandum Circular",
-    "reference": "Revenue Memorandum Circular No. 004-2026",
-    "issued": "January 15, 2026",
-    "searchable": false,
-    "summary": "Clarifies that permanently bound loose-leaf books of accounts and computerized books of accounts must be registered through ORUS, and extends the deadlines because of ORUS log-in problems. This circular has no extractable text in the search index, so answer from this catalog entry.",
-    "topics": [
-      "RMC No. 4-2026",
-      "ORUS registration of books of accounts",
-      "permanently bound loose-leaf books",
-      "computerized books of accounts",
-      "QR code stamp",
-      "extended registration deadlines"
-    ],
-    "sections": [
-      {
-        "heading": "Mandatory registration through ORUS",
-        "items": [
-          "Issued to reiterate Revenue Memorandum Circular No. 3-2023",
-          "Permanently bound loose-leaf books of accounts and computerized books of accounts must be registered online through ORUS within the prescribed deadlines, unless the Commissioner or an authorized representative grants an extension requested before the original deadline lapses",
-          "Successful ORUS registration generates a QR code stamp that can be validated online",
-          "Affix the QR code to the first page of permanently bound loose-leaf books",
-          "Print the QR code and keep it for computerized books of accounts"
-        ]
-      },
-      {
-        "heading": "Manual registration only in exceptional cases",
-        "items": [
-          "Manual stamping at the RDO of the head office or branch where the TIN or branch TIN is registered is allowed only for system downtime or technical errors that prevent ORUS registration",
-          "Accept manual registration only with an official advisory that ORUS is unavailable, or a screenshot of the error message"
-        ]
-      },
-      {
-        "heading": "Records not covered",
-        "items": [
-          "Loose-leaf invoices, receipts, and other accounting records stay on manual registration at the concerned RDO because those transactions are not yet available in ORUS"
-        ]
-      },
-      {
-        "heading": "Extended deadlines",
-        "items": [
-          "Permanently bound loose-leaf books of accounts, invoices, and other accounting records: original deadline January 15, 2026, extended to January 31, 2026",
-          "Computerized books of accounts and other accounting records: original deadline January 30, 2026, extended to February 17, 2026",
-          "The extension is due to intermittent ORUS log-in connectivity issues",
-          "Taxpayers must comply within the extended deadlines to avoid penalties",
-          "Signed by Charlito Martin R. Mendoza, Commissioner of Internal Revenue"
-        ]
-      }
-    ]
-  },
-  "04_Invoicing_RMC_77_2024.pdf": {
-    "title": "Clarification on Invoicing Requirements under RR No. 7-2024, as amended by RR No. 11-2024 (RMC No. 77-2024)",
-    "documentType": "Revenue Memorandum Circular",
-    "reference": "Revenue Memorandum Circular No. 077-2024",
-    "issued": "July 11, 2024",
-    "searchable": false,
-    "summary": "Question-and-answer circular on the Ease of Paying Taxes Act invoicing rules. An invoice is the primary evidence for sales of goods and of services. Official receipts become supplementary documents. This circular has no extractable text in the search index, so answer from this catalog entry.",
-    "topics": [
-      "RMC No. 77-2024",
-      "RR No. 7-2024",
-      "Ease of Paying Taxes Act",
-      "VAT invoice",
-      "non-VAT invoice",
-      "P500 invoice threshold",
-      "official receipt conversion",
-      "Authority to Print"
-    ],
-    "sections": [
-      {
-        "heading": "Who must issue an invoice",
-        "items": [
-          "A VAT-registered person issues a VAT invoice for every sale, barter, exchange, or lease of goods or properties and for every sale, barter, or exchange of services, regardless of amount",
-          "A non-VAT person issues a non-VAT invoice for every sale of goods or properties and for every service valued at P500 or more. If the buyer asks for an invoice, issue it regardless of amount",
-          "A non-VAT seller also issues an invoice when a single transaction is more than P500, when the buyer requests one, or when transactions below P500 aggregate to at least P500 at the end of the day",
-          "The P500 threshold is adjusted every three years from January 22, 2024 using the Consumer Price Index",
-          "Invoicing provisions of RR No. 7-2024 took effect on April 27, 2024, fifteen days after publication on the BIR website on April 12, 2024"
-        ]
-      },
-      {
-        "heading": "Invoice contents and names",
-        "items": [
-          "A VAT or non-VAT invoice contains the information in Section 6(B) of RR No. 7-2024",
-          "Business style of the buyer or seller is not required. A trade name, store name, or branding may be shown",
-          "The word Invoice must be printed prominently. Allowed descriptive names include Invoice, Sales Invoice, Cash Invoice, Charge Invoice, Credit Invoice, Service Invoice, and Billing Invoice",
-          "Cash Invoice is for cash or immediately paid sales. Charge or Credit Invoice is for sales on credit. Service Invoice is for services. Billing Invoice bills charges for a specific transaction. Commercial Invoice is for export. Miscellaneous Invoice is for other income",
-          "From April 27, 2024, sellers of goods and services issue an invoice. A seller may use more than one type, such as cash and charge, or goods and services",
-          "A seller cannot issue a second invoice merely to acknowledge collection. A supplementary official receipt, payment receipt, or acknowledgement receipt may be issued when payment is collected",
-          "An invoice may itself show that payment was already received",
-          "Utility and other recurring billers issue a Billing Invoice when billing, with quantity, unit cost, and description or nature of service under Section 237 of the Tax Code",
-          "A VAT-registered seller with mixed transactions may use one invoice or separate invoices. One invoice must break down VATable, VAT-exempt, and zero-rated sales and the VAT for each. Separate invoices must prominently state VAT-Exempt Sale or Zero-Rated Sale"
-        ]
-      },
-      {
-        "heading": "Authority to Print and official receipts",
-        "items": [
-          "A new Authority to Print is required because the invoice is now the primary evidence. During the transitory period, unused official receipts may be converted",
-          "Unused official receipts may continue as supplementary documents only if every page is stamped THIS DOCUMENT IS NOT VALID FOR CLAIM OF INPUT TAX",
-          "Unused official receipts may be converted to invoices until fully consumed by striking out Official Receipt and stamping Invoice or a descriptive invoice name. Missing information required by Section 237, including quantity, unit cost, and description, may be stamped on conversion",
-          "Each invoice type may have its own serial range starting at 1, or a prefix or suffix. Official receipts kept as supplementary documents continue from the last approved official-receipt serial",
-          "CRM, POS, e-receipting, and e-invoicing systems may rename Official Receipt to a descriptive invoice term without RDO approval of the renaming. The new serial continues from the last official receipt. Submit a notice in duplicate to the RDO or Large Taxpayers office where the machines are registered, showing the starting serial and start date",
-          "Stamping Invoice on unused official receipts does not need prior RDO approval, but reporting the conversion is required. Obtain a new ATP before the converted receipts are used up",
-          "Inventory report of unused manual and loose-leaf official receipts converted to invoices, Annex C, was due until July 31, 2024",
-          "Notice of renaming for CRM, POS, CAS, or CBA, Annex D, was due within 30 days from completion of reconfiguration or on December 31, 2024, whichever came first",
-          "A taxpayer who already submitted the inventory under Annex D of RMO No. 12-2013, or a letter notice before this circular was posted, need not resubmit",
-          "Reports for all branches may be filed with the head-office RDO, which transmits copies to the branch RDOs, or through the TRRA Portal",
-          "CAS or CBA enhancements were to be done on or before December 31, 2024, with any extension approved by the Regional Director or the Assistant Commissioner of the Large Taxpayers Service for not more than six months from December 31, 2024. A letter request for extension was due before December 31, 2024. The RDO acts within three working days and the Regional Director or Assistant Commissioner acts within three working days of that recommendation"
-        ]
-      },
-      {
-        "heading": "Consequences and special cases",
-        "items": [
-          "Issuing an official receipt, stamped or unstamped, from CRM, POS, e-receipting, or e-invoicing after December 31, 2024 or completion of reconfiguration, whichever is first, and issuing an unstamped manual or loose-leaf official receipt after April 27, 2024, is treated as failure to issue an invoice under Section 6(A) of RR No. 7-2024",
-          "The penalty is not less than P1,000 and not more than P50,000, and imprisonment of not less than two years but not more than four years, under Section 264(a) of the Tax Code",
-          "Issuing only an official receipt, payment receipt, collection receipt, billing statement, or statement of account, without the corresponding invoice, has the same consequence",
-          "A non-VAT seller who issues a VAT invoice is liable for the VAT under Section 106 or 108 without the benefit of input tax credit, plus a 50 percent surcharge under Section 248(B). The VAT-registered buyer may claim input tax under Section 110 if the invoice shows the amount of sales, VAT amount, registered name and TIN from the COR of both parties, description of goods or services, and date",
-          "A VAT-registered seller who issues an invoice missing information required by Sections 3(B) and 6(B) of RR No. 7-2024 is liable for non-compliance. The buyer may still claim input tax unless the invoice lacks amount of sales, VAT amount, registered name and TIN, description, or date",
-          "For a sale of service before April 27, 2024 collected from January 22, 2024 through April 26, 2024, the collection document is an official receipt. If collected on or after April 27, 2024, the sale document is an invoice or a converted official receipt, and the collection document is a payment, collection, or acknowledgement receipt",
-          "For a sale of service on or after April 27, 2024, issue an invoice or an allowed converted official receipt. After April 27, 2024, collection is evidenced by a payment receipt, official receipt, collection receipt, or acknowledgement receipt",
-          "A non-stock, non-profit educational, charitable, religious, cultural, social welfare, or philanthropic entity, or an NGO, issues a supplementary document such as a non-VAT official receipt, acknowledgement receipt, or donation receipt for donations. If it has any profitable business activity, it issues an invoice for every business sale of goods or services",
-          "Sample manual invoice layouts are attached as annexes. Signed by Romeo D. Lumagui, Jr., Commissioner of Internal Revenue. Effectivity is upon posting on the BIR website"
-        ]
-      }
-    ]
-  },
-  "05_Online_Sellers_Taxpayer_Guide.pdf": {
-    "title": "Taxpayer's Guide for Online Sellers: Steps and Requirements for Registration, Filing, and Payment",
-    "documentType": "Taxpayer guide",
-    "reference": "Taxpayer's Guide for Online Sellers",
-    "issued": "Prepared by the Public Information and Education Division under the Client Support Service",
+  "WI-03_Laptop_Desktop_and_Peripheral_Issues.pdf": {
+    "title": "WI-03 Laptop, Desktop and Peripheral Issues",
+    "documentType": "Work instruction",
+    "reference": "WI-03",
+    "issued": "v1.0",
     "searchable": true,
-    "summary": "Guide for online sellers earning income in the Philippines through an electronic platform or their own website, except non-resident foreign companies. It covers five registration channels, post-registration duties, income tax rates, filing deadlines, withholding reports, and BIR eServices.",
+    "summary": "Use this instruction for hardware faults and performance problems on company-issued computers and their peripherals. Priority: P3 Medium (P2 if user cannot work at all) Response target: Respond in 15 min / resolve in 4 business hours Handled by: Tier 1, then Tier 2 / deskside Related: WI-18 Asset Management, WI-19 OS Updates and Patching, WI-10 Security Incidents",
     "topics": [
-      "online sellers",
-      "business registration",
-      "BIR Form 1901",
-      "BIR Form 1903",
-      "Documentary Stamp Tax",
-      "filing deadlines",
-      "8 percent income tax",
-      "withholding tax remittance",
-      "BIR eServices"
+      "Laptop, Desktop and Peripheral Issues",
+      "IT helpdesk",
+      "WI-03"
     ],
     "sections": [
       {
-        "heading": "Ways to register",
+        "heading": "Common symptoms",
         "items": [
-          "Manual registration at the New Business Registration Counter of the RDO of the place of business, or of the residence if the business is at home, under the Single Window Policy",
-          "ORUS at https://orus.bir.gov.ph for end-to-end registration and updates",
-          "NewBizReg Portal at https://www.bir.gov.ph/newbizreg/ for a new head office or branch, with scanned documents emailed to the RDO and attachments not exceeding 4 MB per email",
-          "TRRA Portal at https://www.bir.gov.ph/trraportal/ for other registration transactions, each PDF not exceeding 4 MB",
-          "Philippine Business Hub at https://business.gov.ph/home, which connects SEC, DTI, BIR, SSS, PhilHealth, Pag-IBIG, and selected Metro Manila LGUs",
-          "Register on or before commencement of business, payment of any tax due, or filing of a return, whichever comes first"
+          "Device will not power on, boots to a black screen, or restarts unexpectedly",
+          "Very slow performance, freezing, or overheating",
+          "Keyboard, mouse, webcam, headset, or docking station not working",
+          "Blue screen errors, disk full warnings, or battery not charging"
         ]
       },
       {
-        "heading": "Manual registration documents and fees",
+        "heading": "Information to collect",
         "items": [
-          "Individuals: BIR Form 1901, a government-issued ID showing name, address, and birth date, or other proof of address, and either a final sample of own invoices with BIR Form 1906 or BIR Printed Invoices bought at the NBRC",
-          "Additional for individuals if applicable: DTI certificate for a business name, and an SPA plus IDs if a representative transacts",
-          "Corporations: BIR Form 1903, SEC Certificate of Incorporation, Certificate of Recording for a partnership, or License to Do Business for a foreign corporation, Articles of Incorporation, and invoice sample with BIR Form 1906 or BIR Printed Invoices",
-          "Additional for corporations transacting through a representative: board resolution or secretary's certificate, and government IDs",
-          "Pay P30 Documentary Stamp Tax and, if chosen, the cost of BIR Printed Invoices. An Authority to Print is filed at the NBRC when printing own invoices",
-          "Receive the Certificate of Registration, received copy of BIR Form 1901 or 1903, Notice to Issue Invoice, BIR Printed Invoices or Authority to Print, and proof of payment",
-          "Newly registered taxpayers are encouraged to attend the RDO taxpayer briefing. Other documents are in the Citizen's Charter"
+          "Asset tag or hostname, make and model",
+          "Exact symptoms, error text, and when it started",
+          "Any recent changes (updates, new software, drops or spills)",
+          "Whether the problem follows the user to another device or dock"
         ]
       },
       {
-        "heading": "ORUS, NewBizReg, TRRA, and Philippine Business Hub",
+        "heading": "Resolution steps",
         "items": [
-          "ORUS: create an account, choose new registration, accomplish BIR Form 1901 or 1903, attach the same ID, invoice, SEC, and SPA documents, pay the P30 loose DST online through Link.BizPortal using LANDBANK, BPI, Asia United Bank, PSBank, RCBC, Robinsons Bank, or UnionBank, then print the electronic COR and ATP if applicable",
-          "NewBizReg: an applicant with a TIN may pay the P30 DST online. An applicant without a TIN waits for an email and pays the DST at the NBRC when claiming the COR. Attach the tax type questionnaire from the NewBizReg site",
-          "TRRA transactions: TIN under E.O. 98 and ONETT, registration of OFW and non-resident citizens, Authority to Print, email update using Form S1905, transfer of employees and other non-business taxpayers, and updating a maiden name for a married woman",
-          "Philippine Business Hub: create a profile, register the business name in BNRS, answer the BIR tax type questionnaire, pay P30 DST online or manually, generate or claim the COR, then apply for an ATP or buy BIR Printed Invoices. Manual payment needs the PBH Unified Application Form, tax type questionnaire, and invoice sample or BIR Printed Invoices"
+          "1 Check the basics. Confirm the charger is connected and the outlet works, cables are firm, and the device is not in sleep or airplane mode. Hold the power button for 15 seconds, then try again.",
+          "2 Isolate the fault. Disconnect all peripherals and test with a known-good charger, dock, or mouse. This separates a peripheral problem from a device problem.",
+          "3 Review system health. Remotely check CPU, memory, and disk usage, pending updates, uptime, and event logs. Restart if uptime is over 7 days.",
+          "4 Clear common causes. Free disk space, remove unneeded start-up items, run the manufacturer diagnostics, and install pending operating system and driver updates.",
+          "5 Back up user data. Before any repair or rebuild, confirm user data is synced to cloud storage or backed up. Do not reimage without confirmation from the user.",
+          "6 Repair or replace. If hardware has failed, log a warranty claim with the vendor or issue a loaner device from stock. Record the serial numbers of both devices.",
+          "7 Verify with the user. Confirm the user can sign in and open their key applications. Collect any returned faulty hardware and update the asset register."
         ]
       },
       {
-        "heading": "After registration",
+        "heading": "Escalate when",
         "items": [
-          "Post the Certificate of Registration and Notice to Issue Invoices where they are visible in the establishment",
-          "Register books of accounts before the deadline of the first quarterly income tax return or the annual income tax return, whichever is earlier. New sets may be registered yearly before the old pages are used up",
-          "Annual sales, earnings, and receipts exceeding P3,000,000 must be audited yearly by an independent CPA",
-          "Preserve books and other accounting records for five years from the day after the filing deadline, or from the actual filing date if filed late, counted from the taxable year of the last entry",
-          "Issue a registered sales or commercial invoice for every sale or transfer of merchandise or service of P500 or more. If each sale is below P500 but the day's total is at least P500, issue one invoice for the day's aggregate. VAT-registered persons issue an invoice regardless of amount"
-        ]
-      },
-      {
-        "heading": "Tax rates",
-        "items": [
-          "Domestic corporation and resident foreign corporation: 25 percent of taxable income, or 20 percent if net taxable income does not exceed P5,000,000 and total assets excluding the land of the office, plant, and equipment do not exceed P100,000,000",
-          "Minimum corporate income tax: 2 percent of gross income, or 1 percent from July 1, 2020 to June 30, 2023, reverting to 2 percent on July 1, 2023",
-          "Non-resident foreign corporation: 25 percent of taxable income from Philippine sources",
-          "Graduated individual income tax: 0 up to P250,000; 15 percent of the excess over P250,000 up to P400,000; P22,500 plus 20 percent of the excess over P400,000 up to P800,000; P102,500 plus 25 percent of the excess over P800,000 up to P2,000,000; P402,500 plus 30 percent of the excess over P2,000,000 up to P8,000,000; P2,202,500 plus 35 percent of the excess over P8,000,000",
-          "The 8 percent income tax option is for self-employed individuals whose gross sales and other non-operating income do not exceed the P3,000,000 VAT threshold, and for mixed-income earners on their business income only. Compensation income stays on graduated rates. Exceeding the threshold ends the option",
-          "First year: signify the 8 percent option on BIR Form 1901 or on the initial quarterly return, BIR Form 2551Q or 1701Q. Later years: BIR Form 1905 at the start of the year, or the first quarterly percentage tax or income tax return"
-        ]
-      },
-      {
-        "heading": "Filing deadlines for self-employed individuals",
-        "items": [
-          "Income tax BIR Form 1701Q: May 15, August 15, and November 15. Annual BIR Form 1701 or 1701A: April 15",
-          "VAT BIR Form 2550Q: April 25, July 25, October 25, and January 25 of the following year",
-          "Percentage tax BIR Form 2551Q: the same quarterly dates as VAT",
-          "VAT applies when gross sales exceed P3,000,000 or the person opts to register as a VAT taxpayer. Percentage tax applies to a VAT-covered activity whose gross sales do not exceed P3,000,000 and who is not VAT-registered"
-        ]
-      },
-      {
-        "heading": "Filing deadlines for corporations, partnerships, and other non-individuals",
-        "items": [
-          "Quarterly income tax BIR Form 1702Q: within 60 days after the close of each taxable quarter, calendar or fiscal",
-          "Annual income tax BIR Form 1702-RT, 1702-EX, or 1702-MX: the 15th day of the fourth month after the close of the taxable year",
-          "VAT BIR Form 2550Q and percentage tax BIR Form 2551Q: the 25th day after the close of each taxable quarter"
-        ]
-      },
-      {
-        "heading": "How to file and what else to submit",
-        "items": [
-          "Manual filing of hard copies at an authorized agent bank or revenue collection officer",
-          "eBIRForms offline package",
-          "eFPS for electronic filing and online payment",
-          "eAFS for online submission of the filed income tax return, audited financial statements, and other attachments in PDF",
-          "Under the Ease of Paying Taxes Act, Republic Act No. 11976, returns are filed electronically and tax may be paid electronically or manually at any authorized agent bank, RDO through a revenue collection officer, payment gateway, or authorized tax software provider",
-          "ePayment channels are listed at the BIR ePay page",
-          "BIR Form 0619-E and 0619-F: on or before the 10th day of the following month for the first two months of the quarter. eFPS users follow RR No. 26-2002",
-          "BIR Form 1601-C: on or before the 10th day of the following month for January to November, and on or before January 15 for December",
-          "BIR Forms 1601-EQ, 1601-FQ, and 1603Q: not later than the last day of the month after the quarter",
-          "SAWT through eSubmission when claiming creditable withholding tax on BIR Forms 1701, 1701A, 1701Q, 2550Q, and 2551Q",
-          "SLSP through eSubmission as an attachment to BIR Form 2550Q under RMO No. 4-2003",
-          "QAP as an attachment to BIR Form 1601-EQ",
-          "BIR Form 1604-E and the annual alphalist of payees: on or before March 1 of the following year",
-          "BIR Forms 1604-C and 1604-F: on or before January 31 of the following year"
-        ]
-      },
-      {
-        "heading": "eServices named in the guide",
-        "items": [
-          "ORUS: https://bit.ly/BIR-ORUS",
-          "TRRA Portal: https://www.bir.gov.ph/trraportal/",
-          "NewBizReg: https://www.bir.gov.ph/newbizreg/",
-          "eFPS: https://bit.ly/BIR-eFPS",
-          "eBIRForms offline package",
-          "ePay: https://bit.ly/BIR-ePay",
-          "eAFS: https://bit.ly/BIR-eAFS",
-          "eAppointment: https://bit.ly/BIREAPPOINTMENT",
-          "Revie chatbot on www.bir.gov.ph for TIN validation, RDO finder, eComplaint, general inquiries, and TIN inquiry",
-          "Contact: www.bir.gov.ph and (02) 8538-3200"
+          "Suspected physical damage, liquid exposure, or battery swelling (tell the user to power off and stop charging)",
+          "Repeated crashes after a rebuild, suggesting a hardware fault",
+          "Lost or stolen device: raise a security incident immediately (see WI-10)"
         ]
       }
     ]
   },
-  "06_eBIRForms_Job_Aid.pdf": {
-    "title": "Job Aids for Taxpayers and Accredited Tax Agents for the Use of the eBIRForms",
-    "documentType": "Job aid",
-    "reference": "Guide for eBIRForms",
-    "issued": "January 2013 edition; contact center (02) 981-8888",
+  "WI-04_Software_Installation_Updates_and_Licensing.pdf": {
+    "title": "WI-04 Software Installation, Updates and Licensing",
+    "documentType": "Work instruction",
+    "reference": "WI-04",
+    "issued": "v1.0",
     "searchable": true,
-    "summary": "January 2013 job aid for the offline eBIRForms package and the online eBIRForms system. It explains the project, installation, offline preparation, printing and signing, online enrollment, and online filing. Procedures and screen labels are those of this edition, not a later package.",
+    "summary": "Use this instruction when a user requests new software, cannot install or update an application, or reports a licensing error. Priority: P4 Low (P3 if blocking critical work) Response target: Respond in 30 min / resolve in 1 business day Handled by: Tier 1 / Tier 2 Related: WI-03 Laptops and Peripherals, WI-09 Access Requests, WI-20 Browser and Web Apps",
     "topics": [
-      "eBIRForms offline package",
-      "online eBIRForms enrollment and filing",
-      "accredited tax agents",
-      "tax software providers",
-      "download and install",
-      "print and sign a return"
+      "Software Installation, Updates and Licensing",
+      "IT helpdesk",
+      "WI-04"
     ],
     "sections": [
       {
-        "heading": "Project overview",
+        "heading": "Common symptoms",
         "items": [
-          "The interactive-forms project supports electronic filing, wider channels than eFPS, data capture, and filing by people with limited internet",
-          "Phase 1: downloadable PDF of BIR Forms 1700, 1701, and 1702 that can be filled, saved, printed, and submitted manually",
-          "Phase 2: offline package of 31 BIR forms with entry, editing, saving, and printing, still submitted manually",
-          "Phase 3: online system that accepts, validates, processes, and stores returns and sends data to ITS and RPS. It serves non-eFPS taxpayers, accredited tax agents filing for clients, and tax software providers certifying their software"
+          "User requests an application not on their device",
+          "Installation fails or is blocked by policy",
+          "\"Unlicensed product\" or \"trial expired\" message",
+          "Application crashes after an update"
         ]
       },
       {
-        "heading": "Terms and features",
+        "heading": "Information to collect",
         "items": [
-          "Offline means not connected to the internet. Online means connected",
-          "Manual filing: fill offline, print, and submit to an authorized agent bank, RDO, or revenue collection officer",
-          "Electronic filing in this job aid: fill the offline package or the downloadable Excel or PDF forms 1700, 1701, and 1702",
-          "Manual payment is handed to an authorized agent bank or revenue collection officer. Electronic payment uses an enrolled payment system",
-          "The offline package validates required fields, single options, MMDDYYYY dates, allowed values, and data length, and it computes fields automatically",
-          "The forms in the package are the existing BIR forms in electronic format, not new forms"
+          "Application name, version, and business reason",
+          "Hostname and operating system",
+          "Exact error message or screenshot",
+          "Manager approval for software that carries a cost"
         ]
       },
       {
-        "heading": "How the job aid is organized",
+        "heading": "Resolution steps",
         "items": [
-          "Introduction to eBIRForms",
-          "Download and install the offline package",
-          "Update the offline version",
-          "Navigate a form and the types of input",
-          "Use the package offline",
-          "Print and sign the form",
-          "Enroll in the online eBIRForms system",
-          "File through the online system",
-          "Frequently asked questions"
+          "1 Check the approved catalogue. Look in the software catalogue or company portal first. If the application is listed, guide the user to install it from there.",
+          "2 Confirm approval. If the software is not in the catalogue, confirm the manager's approval and a licence cost centre. Send unapproved software to the security and procurement review process.",
+          "3 Check licence availability. Look in the licence tracker for free seats. If none are available, raise a procurement request and tell the user the expected timeline.",
+          "4 Install through the managed tool. Deploy through the endpoint management tool (for example Intune or SCCM) rather than a manual install, so it stays patched and inventoried.",
+          "5 Fix failures. For failed installs, check free disk space, pending restarts, administrator rights, and conflicts with older versions. Review the installer log and retry.",
+          "6 Assign and activate the licence. Assign the licence to the user's account and confirm activation. Remove the licence from users who have left or no longer need it.",
+          "7 Validate with the user. Confirm the application opens, the user can sign in, and any key files open correctly."
         ]
       },
       {
-        "heading": "Form numbers mentioned in this edition",
+        "heading": "Escalate when",
         "items": [
-          "0605, 1600, 1600WP, 1601C, 1601E, 1601F, 1602, 1603, 1604CF, 1604E, 1606",
-          "1700, 1701, 1701Q, 1702, 1702Q, 1704, 1706, 1707",
-          "1800, 1801, 2000, 2000-OT",
-          "2200, 2200A, 2200AN, 2200M, 2200P, 2200T",
-          "2550M, 2550Q, 2551M, 2551Q, 2552, 2553"
+          "Software fails security review, or is on the prohibited list",
+          "Vendor-side licensing or activation errors",
+          "A rollout or update causes the same failure on many devices (possible major incident)"
         ]
       }
     ]
   },
-  "07_COR_eCOR_Registration_Seal_RMC_38_2026.pdf": {
-    "title": "Issuance and Posting of the BIR Registration Seal Badge and QR Code on the Certificate of Registration (RMC No. 38-2026)",
-    "documentType": "Revenue Memorandum Circular",
-    "reference": "Revenue Memorandum Circular No. 038-2026",
-    "issued": "April 29, 2026",
-    "searchable": false,
-    "summary": "Requires online sellers and persons offering services online to post the BIR Registration Seal Badge instead of the full COR or eCOR, and announces the QR code on the COR and eCOR. This circular has no extractable text in the search index, so answer from this catalog entry.",
-    "topics": [
-      "RMC No. 38-2026",
-      "BIR Registration Seal Badge",
-      "Certificate of Registration",
-      "electronic Certificate of Registration",
-      "QR code verification",
-      "online sellers and content creators"
-    ],
-    "sections": [
-      {
-        "heading": "Legal basis and who is covered",
-        "items": [
-          "Based on Section 236 of the Tax Code, Section 5 of RR No. 7-2024, and Section 5 of RR No. 15-2024",
-          "Persons subject to internal revenue tax must register with the RDO on or before commencement of business, before payment of any tax due, or before or upon filing a return, whichever the Tax Code requires",
-          "Section 5(F) of RR No. 7-2024 requires issuance of a COR or eCOR for each head office, branch, and facility after complete documentary requirements, within the Citizen's Charter period",
-          "Persons engaged in business or practice of profession must post the COR or eCOR where the business is conducted and at each branch or facility, clearly visible to the public",
-          "Section 5(H) of RR No. 7-2024 and Section 7 of RR No. 15-2024 require proof of registration on websites, e-commerce or e-marketplace seller pages, and other platforms",
-          "Coverage includes online sellers of goods and persons providing services digitally, including professionals, bloggers, vloggers, live streamers, content creators, influencers, and individuals earning from views, advertisements, affiliate commissions, brand sponsorships, or similar monetized digital activities"
-        ]
-      },
-      {
-        "heading": "Registration Seal Badge",
-        "items": [
-          "The BIR issues the badge in Annex A so the seller, content creator, or influencer can post it instead of the full COR or eCOR",
-          "It is issued with the COR or eCOR, free of charge, manually or electronically through ORUS, to all business taxpayers",
-          "Online sellers and online service providers must have the applicable PSIC or PSOC on the COR or eCOR",
-          "Individual professional: PSOC 5990, Online Content Creator",
-          "Individual and non-individual: PSIC 47913 retail sale via internet; PSIC 47911 retail sale via mail order; PSIC 47912 retail sale via telephone order; PSIC 85593 online tutorial services",
-          "Both the COR or eCOR and the badge contain a QR code. Scan it with a mobile application or QR scanner. Relying parties must confirm that the URL is the official BIR verification domain or the BIR link https://verify.bir.gov.ph/correspondence/ before relying on the result",
-          "An existing COR or eCOR without a QR code does not have to be replaced, but taxpayers are encouraged to update it. Someone required to post proof online secures the badge by updating registration at the RDO or through ORUS and paying the P30 loose Documentary Stamp Tax"
-        ]
-      },
-      {
-        "heading": "Where and how to post it",
-        "items": [
-          "Taxpayer's own website or mobile application: any page or link such as About, Company, Government Compliance, or Business Permits",
-          "E-commerce platform or mobile app: Support, About, App Setting, or a link such as Government Compliance or Business Permits",
-          "Seller, merchant, or service provider with an account or sales on a platform: the seller or merchant page, profile, store or shop details, marketplace, or business page",
-          "Post only the badge, not the entire registration document. Cropping or extracting the badge is allowed. Annex B shows the display",
-          "The uploaded badge must stay clear, readable, and unaltered",
-          "The COR or eCOR with QR code and the badge become available when the circular is published on www.bir.gov.ph. Annex C is the taxpayer guide for generating and securing the badge through ORUS",
-          "Signed by Charlito Martin R. Mendoza, Commissioner of Internal Revenue"
-        ]
-      }
-    ]
-  },
-  "08_Taxpayer_Portal_RMC_53_2026.pdf": {
-    "title": "Availability and Pilot Implementation of the Taxpayer Portal (RMC No. 53-2026)",
-    "documentType": "Revenue Memorandum Circular",
-    "reference": "Revenue Memorandum Circular No. 53-2026",
-    "issued": "May 26, 2026",
+  "WI-05_Email_and_Calendar_Problems.pdf": {
+    "title": "WI-05 Email and Calendar Problems",
+    "documentType": "Work instruction",
+    "reference": "WI-05",
+    "issued": "v1.0",
     "searchable": true,
-    "summary": "Announces the Taxpayer Portal and limits the pilot to taxpayers registered under the Large Taxpayers Service. It is a secured single view of registration, filed returns, payments, the account ledger, and filing or payment reminders.",
+    "summary": "Use this instruction for problems sending, receiving, or accessing email, and for calendar and mailbox configuration issues. Priority: P3 Medium (P2 if a whole team or executive is affected) Response target: Respond in 15 min / resolve in 2 business hours Handled by: Tier 1, then Tier 2 / messaging team Related: WI-10 Security Incidents, WI-11 Mobile Devices, WI-12 Video Conferencing",
     "topics": [
-      "RMC No. 53-2026",
-      "Taxpayer Portal",
-      "Large Taxpayers Service",
-      "registration information",
-      "filed returns",
-      "tax payments",
-      "account ledger"
+      "Email and Calendar Problems",
+      "IT helpdesk",
+      "WI-05"
     ],
     "sections": [
       {
-        "heading": "Pilot coverage and functions",
+        "heading": "Common symptoms",
         "items": [
-          "Pilot is only for taxpayers registered under the offices or divisions of the Large Taxpayers Service",
-          "View current registration details",
-          "Monitor the status of filed returns by tax type and form type",
-          "Track tax payments",
-          "View the account ledger by tax type and form type",
-          "Receive system-generated notifications and reminders for filing and payment",
-          "The portal is meant to reduce manual follow-up and in-person visits"
+          "Cannot send or receive messages, or messages stuck in Outbox",
+          "Outlook shows \"Disconnected\" or keeps asking for a password",
+          "Mailbox full, or shared mailbox missing",
+          "Meeting invites not appearing, or calendar not syncing"
         ]
       },
       {
-        "heading": "Where to get help",
+        "heading": "Information to collect",
         "items": [
-          "For enrollment, technical concerns, or inaccurate records, coordinate with the Large Taxpayers office or division where the taxpayer is registered"
+          "Email address affected and any bounce-back (NDR) text",
+          "Whether the problem occurs in Outlook desktop, web, or mobile",
+          "Time of the last successful send or receive",
+          "Whether the issue affects one user, a group, or everyone"
+        ]
+      },
+      {
+        "heading": "Resolution steps",
+        "items": [
+          "1 Scope the problem. Check the service health dashboard first. If the platform is degraded, link the ticket to the major incident and update the user.",
+          "2 Test in webmail. Ask the user to sign in to Outlook on the web. If it works there, the fault is with the desktop client or profile. If it fails, the fault is with the account or mailbox.",
+          "3 Check the account and mailbox. Verify the licence, mailbox size and quota, sign-in status, and any mail flow rules, forwarding, or blocked-sender entries.",
+          "4 Fix the client. Restart Outlook in safe mode, clear cached credentials, run the Office repair, or create a new Outlook profile. Re-add the mailbox if it is a shared mailbox.",
+          "5 Read the bounce message. For delivery failures, read the NDR code. Common causes are a mistyped address, recipient mailbox full, message too large, or a blocked domain. Check the message trace for details.",
+          "6 Check for spam and quarantine. If messages are missing, check the junk folder and the admin quarantine. Release safe messages and add the sender to the allow list if approved.",
+          "7 Confirm resolution. Ask the user to send and receive a test message and check that the calendar shows correct meetings."
+        ]
+      },
+      {
+        "heading": "Escalate when",
+        "items": [
+          "Suspected account compromise, unexpected forwarding rules, or phishing campaign (see WI-10)",
+          "Mail flow problems affecting multiple users or external delivery",
+          "Mailbox corruption, or a restore request for deleted items beyond retention"
         ]
       }
     ]
   },
-  "09_Books_of_Accounts_CDR_2024.pdf": {
-    "title": "BIR Checklist of Documentary Requirements, Revised January 2024",
-    "documentType": "Checklist of documentary requirements",
-    "reference": "CDR revised January 2024, QF11-04.2024.00",
-    "issued": "Revised January 2024",
+  "WI-06_Wi_Fi_and_Network_Connectivity.pdf": {
+    "title": "WI-06 Wi-Fi and Network Connectivity",
+    "documentType": "Work instruction",
+    "reference": "WI-06",
+    "issued": "v1.0",
     "searchable": true,
-    "summary": "Cover-sheet checklists for registration and registration-related applications. Processing starts only when documents are complete; incomplete applications are returned. Mark submitted documents and mark lacking ones. The file includes books of accounts as one checklist, F1105B, together with the other registration checklists.",
+    "summary": "Use this instruction when a user cannot connect to the corporate network or the internet, or the connection is unstable or slow. Priority: P2 High if a site or floor is down, otherwise P3 Response target: Respond in 15 min / resolve in 4 business hours Handled by: Tier 1, then Network team Related: WI-07 VPN, WI-16 Meeting Room AV, WI-10 Security Incidents",
     "topics": [
-      "checklist of documentary requirements",
-      "BIR Form 1901",
-      "BIR Form 1903",
-      "BIR Form 1905",
-      "books of accounts",
-      "Authority to Print",
-      "transfer of registration",
-      "cancellation of TIN",
-      "business closure"
+      "Wi-Fi and Network Connectivity",
+      "IT helpdesk",
+      "WI-06"
     ],
     "sections": [
       {
-        "heading": "F1101 — Self-employed individuals",
+        "heading": "Common symptoms",
         "items": [
-          "Covers sole proprietors, PRC-regulated professionals, and persons not regulated by the PRC such as artists, directors, freelancers, mixed-income earners, job order or service contractors, online sellers, vloggers, bloggers, streamers, influencers, YouTubers, and content creators",
-          "Online: create an ORUS account at https://orus.bir.gov.ph. After paying P30 loose DST, print the electronic COR. Comply with invoicing through BIR Printed Invoices or an Authority to Print",
-          "Manual: BIR Form 1901, two originals; government-issued ID showing name, address, and birth date, or proof of address. PRC professionals submit a valid PRC ID plus an ID or proof of address. Online applications upload a selfie while holding the ID",
-          "Buy BIR Printed Invoices at the New Business Registrant Counter, or submit one original final sample of own invoices and use an accredited printer",
-          "Fee: P30 loose Documentary Stamp Tax on the COR, plus the printing cost of BIR Printed Invoices if chosen. If the DST was paid online, submit a photocopy of the proof",
-          "If applicable: SPA and IDs for a representative, DTI certificate for a business name, 9(g) work visa for a foreign national, service contract for a job order or service contract with an NGA, LGU, GOCC, or GFI, franchise documents for a common carrier, BMBE Certificate of Authority, and proof of registration with BOI, PEZA, BCDA, TIEZA, SBMA, or a similar zone"
+          "\"No internet\" or limited connectivity indicator",
+          "Cannot join the corporate Wi-Fi, or keeps disconnecting",
+          "Wired port is dead, or the dock does not give a connection",
+          "Websites or internal apps are slow or time out"
         ]
       },
       {
-        "heading": "F11ET — Estate and trust",
+        "heading": "Information to collect",
         "items": [
-          "BIR Form 1901, two originals",
-          "Estate with property subject to estate tax or under judicial settlement: photocopy of the decedent's death certificate. The heir, administrator, or executor requests cancellation of the decedent's TIN",
-          "Irrevocable trust: photocopy of the irrevocable trust agreement",
-          "No fee listed",
-          "Representative of a trust: SPA from the trustee or trustor and government IDs. Administrator, executor, or heir: proof of that capacity and a government ID"
+          "Location (building, floor, desk) and device hostname",
+          "Wi-Fi or wired, and the network name (SSID)",
+          "Whether other users nearby are affected",
+          "Result of a ping to the gateway and to an external site"
         ]
       },
       {
-        "heading": "F1103 — Corporations, partnerships, cooperatives, and associations",
+        "heading": "Resolution steps",
         "items": [
-          "Covers a domestic corporation, one-person corporation, partnership, resident foreign corporation, cooperative, and association, whether taxable or non-taxable",
-          "Online through ORUS, with electronic COR after P30 loose DST and invoicing compliance",
-          "Manual: BIR Form 1903, two originals",
-          "One photocopy of the SEC Certificate of Incorporation, certificate of recording for a partnership, license to do business for a foreign corporation, CDA certificate, HLURB certificate, or DOLE certificate, as applicable",
-          "One photocopy of the articles of incorporation, partnership, or cooperation, articles of association, or the constitution and by-laws of a labor organization",
-          "BIR Printed Invoices or one original final sample of own invoices"
+          "1 Scope the issue. Ask nearby users or check the monitoring dashboard. If many users are affected, treat it as an outage and escalate to the Network team at once.",
+          "2 Check the device. Confirm Wi-Fi is on and airplane mode is off. Toggle the adapter, then restart the device. Check that the IP address is valid and is not a 169.254.x.x address.",
+          "3 Test layer by layer. Ping the default gateway, then a public IP address, then a domain name. Failure at the gateway means local connection, at the public IP means routing or the firewall, and at the name means DNS.",
+          "4 Reset the connection. Forget and rejoin the Wi-Fi network, renew the IP lease, flush DNS, and reset the network stack. Update the network adapter driver if outdated.",
+          "5 Check the physical layer. For wired problems, swap the cable, try another wall port and another dock, and check the port in the switch management tool.",
+          "6 Try an alternative. Test on another known-good device or another network (for example a mobile hotspot, if policy allows) to see if the fault follows the user or the location.",
+          "7 Confirm stable connection. Verify access to the internet, an internal application, and a file share. Watch for a few minutes to confirm there are no drops."
         ]
       },
       {
-        "heading": "F11PBH — Registration through the Philippine Business Hub",
+        "heading": "Escalate when",
         "items": [
-          "Covers self-employed persons, domestic corporations, one-person corporations, partnerships, and foreign corporations",
-          "Manual COR: two originals of the printed PBH Unified Form, one original accomplished tax type questionnaire, and either BIR Printed Invoices or BIR Form 1906 with a final invoice sample from an accredited printer",
-          "DST: two originals of BIR Form 0605 for the P30 loose stamp, plus BIR Printed Invoice cost if chosen",
-          "A taxpayer who already generated the electronic COR after online payment of P30 DST still complies with invoicing through BIR Printed Invoices or an Authority to Print",
-          "A representative needs an SPA for an individual, or a board resolution, written resolution, or secretary's certificate for a non-individual, plus IDs"
+          "Multiple users or a whole location affected",
+          "Faulty switch port, wireless access point, or cabling",
+          "Suspected unauthorized device or rogue access point on the network (see WI-10)"
+        ]
+      }
+    ]
+  },
+  "WI-07_VPN_and_Remote_Access.pdf": {
+    "title": "WI-07 VPN and Remote Access",
+    "documentType": "Work instruction",
+    "reference": "WI-07",
+    "issued": "v1.0",
+    "searchable": true,
+    "summary": "Use this instruction when a user working remotely cannot connect to the VPN or reach internal resources. Priority: P3 Medium (P2 if many remote users affected) Response target: Respond in 15 min / resolve in 2 business hours Handled by: Tier 1, then Tier 2 / Network Related: WI-06 Network, WI-10 Security Incidents, WI-01 Password Reset",
+    "topics": [
+      "VPN and Remote Access",
+      "IT helpdesk",
+      "WI-07"
+    ],
+    "sections": [
+      {
+        "heading": "Common symptoms",
+        "items": [
+          "VPN client fails to connect, or disconnects often",
+          "Connected to the VPN but cannot reach internal sites or file shares",
+          "Remote desktop session refused or very slow",
+          "Certificate or MFA errors at VPN sign-in"
         ]
       },
       {
-        "heading": "F11BF — Branch and facility",
+        "heading": "Information to collect",
         "items": [
-          "Online: the head office enrolls in ORUS at https://orus.bir.gov.ph and registers the branch or facility. Electronic COR follows payment of P30 loose DST. A branch, but not a facility, must comply with invoicing",
-          "Manual branch: BIR Form 1901 or 1903, two originals, plus BIR Printed Invoices or a final sample of own invoices",
-          "Manual facility: BIR Form 1901 or 1903, two originals",
-          "Fee: P30 loose DST on the COR. BIR Printed Invoice cost applies to a branch only",
-          "A representative needs an SPA or a board or secretary's certificate, plus IDs"
+          "Location and type of home network (home broadband, mobile hotspot, public Wi-Fi)",
+          "VPN client name and version, and the exact error text",
+          "Whether the user can reach the internet and cloud apps without the VPN",
+          "Time of the last successful connection"
         ]
       },
       {
-        "heading": "F1102 — Employees, registered through the employer",
+        "heading": "Resolution steps",
         "items": [
-          "The employer creates an ORUS account and enrolls in Employer Service Link at https://orus.bir.gov.ph",
-          "Local employee already hired: BIR Form 1902, two originals, and a government-issued ID. Online filing uploads a selfie while holding the ID",
-          "Foreign national employee: BIR Form 1902 and a photocopy of the passport bio page, including entry or exit stamps if applicable",
-          "IGL or POGO employees also submit a certified true copy of the employment contract or equivalent showing duration, compensation, benefits, and duties",
-          "No fee",
-          "If applicable: marriage contract for a married woman. If the employer secures the TIN manually because the system is unavailable, a letter of authority on company letterhead signed by the president or HR head"
+          "1 Confirm internet access. Verify the user has a working internet connection without the VPN. Restart the home router if needed, and test on another network.",
+          "2 Check the account. Confirm the account is active, not locked, and in the VPN access group. Check MFA registration and look for failed sign-in attempts in the logs.",
+          "3 Check the VPN client. Confirm the client version is current and the profile is correct. Restart the client, then reinstall it if the fault continues.",
+          "4 Check the device. Confirm the date and time are correct, the device certificate is valid, and the device is compliant with security policy.",
+          "5 Rule out local blocks. Look for personal firewalls, third-party antivirus, or a router that blocks the VPN ports. Try another network to compare.",
+          "6 Fix access after connecting. If connected but unable to reach resources, flush DNS, check the assigned VPN IP and routes, and confirm the target service is reachable from the internal network.",
+          "7 Verify and document. Have the user open an internal application and a file share. Share the VPN quick guide and how to report slowness."
         ]
       },
       {
-        "heading": "F1104 — Purely TIN issuance",
+        "heading": "Escalate when",
         "items": [
-          "E.O. 98 and ONETT, local individual or resident alien: BIR Form 1904, two originals, and a government-issued ID. Transfer of property by succession also needs the death certificate or an extrajudicial settlement or affidavit of self-adjudication",
-          "If applicable: marriage contract for a married woman, SPA and IDs for a representative, and a barangay certification for a first-time job seeker",
-          "E.O. 98, nonresident foreign national: BIR Form 1904 and the passport bio page. A representative needs an apostilled SPA"
+          "VPN gateway or authentication service errors, or many users failing at once",
+          "Account shows sign-ins from unusual locations (see WI-10)",
+          "Access requested to a restricted network segment (needs approval)"
+        ]
+      }
+    ]
+  },
+  "WI-08_Printer_Scanner_and_Multifunction_Device_Issues.pdf": {
+    "title": "WI-08 Printer, Scanner and Multifunction Device Issues",
+    "documentType": "Work instruction",
+    "reference": "WI-08",
+    "issued": "v1.0",
+    "searchable": true,
+    "summary": "Use this instruction for problems printing, scanning, or copying, and for adding or changing printers. Priority: P4 Low (P3 if the only printer for a team) Response target: Respond in 30 min / resolve in 4 business hours Handled by: Tier 1, then deskside / vendor Related: WI-06 Network, WI-03 Laptops and Peripherals, WI-18 Asset Management",
+    "topics": [
+      "Printer, Scanner and Multifunction Device Issues",
+      "IT helpdesk",
+      "WI-08"
+    ],
+    "sections": [
+      {
+        "heading": "Common symptoms",
+        "items": [
+          "Print job stuck in queue, or printer shows Offline",
+          "Printing garbled text, blank pages, or wrong paper size",
+          "Scan to email or scan to folder not working",
+          "User cannot find or add a printer"
         ]
       },
       {
-        "heading": "F1106 — Authority to Print invoices",
+        "heading": "Information to collect",
         "items": [
-          "New or subsequent ATP for manual bound invoices: BIR Form 1906, two originals; choose an accredited printer; one original final sample of own invoices or supplementary invoices",
-          "Subsequent bound application also needs the last ATP, the printer's certificate of delivery, or presentation of a booklet from the last ATP",
-          "Manual loose-leaf invoices: BIR Form 1906, a photocopy of the Permit to Use loose-leaf invoices, a final sample, and the last ATP for a subsequent application",
-          "No fee listed on this checklist",
-          "A representative needs an SPA or a board resolution, written resolution, or secretary's certificate, plus IDs"
+          "Printer name, location, and asset or IP",
+          "Which users and which applications are affected",
+          "Error message on the printer panel or the computer",
+          "Whether the printer works from another computer"
         ]
       },
       {
-        "heading": "F1105B — Registration of books of accounts",
+        "heading": "Resolution steps",
         "items": [
-          "Online through ORUS at https://orus.bir.gov.ph. Successful registration generates a QR stamp to paste on the first page of the books",
-          "New or subsequent manual books: BIR Form 1905, two originals, and the new set of permanently bound books",
-          "Manual loose-leaf books: BIR Form 1905, photocopy of the Permit to Use, the permanently bound loose-leaf books, and an original affidavit of completeness, accuracy, and the number of loose leaves used",
-          "Computerized books: BIR Form 1905, photocopy of the acknowledgement certificate or Permit to Use for the CAS or CBA if applicable, a transmittal letter, and a labeled DVD, USB, or other storage holding the electronic books in the Standard Audit File, plus an original affidavit of completeness and appropriateness"
+          "1 Check the printer. Look at the panel for paper jams, empty paper or toner, open doors, and error codes. Power cycle the device if it is unresponsive.",
+          "2 Check the connection. Confirm the printer has a network link, and ping its IP address. Verify it shows online on the print server.",
+          "3 Clear the queue. Cancel stuck jobs, then restart the print spooler service on the user's computer or the print server.",
+          "4 Fix the driver or mapping. Remove and re-add the printer using the correct driver. Make sure the user is connected to the right queue, not an old or duplicate one.",
+          "5 Test from another device. If another user can print, the fault is on the first computer. If nobody can, the fault is with the printer or the server.",
+          "6 Fix scanning. For scan-to-email or folder, check the address book entry, the SMTP relay or service account password, and the permissions on the destination folder.",
+          "7 Print a test page. Have the user print a test page and a real document, and confirm the output quality."
         ]
       },
       {
-        "heading": "F1100 — Permit to Use loose-leaf books of accounts or invoices",
+        "heading": "Escalate when",
         "items": [
-          "Online through ORUS. The permit may be downloaded and printed",
-          "BIR Form 1900, two originals",
-          "One original sample format and print-out",
-          "One original sworn statement identifying the books, invoices, receipts, and other records, the serial numbers of principal and supplementary invoices or receipts, and a commitment to bind the loose-leaf forms permanently within 15 days after the end of each taxable year or when their use ends",
-          "No fee",
-          "A representative needs an SPA or a board or secretary's certificate, plus IDs"
+          "Hardware faults (fuser, rollers, board) or repeated jams: log a service call with the vendor",
+          "Print server down or affecting many users",
+          "Request for a new printer or a move needs a change request"
+        ]
+      }
+    ]
+  },
+  "WI-09_Access_and_Permission_Requests.pdf": {
+    "title": "WI-09 Access and Permission Requests",
+    "documentType": "Work instruction",
+    "reference": "WI-09",
+    "issued": "v1.0",
+    "searchable": true,
+    "summary": "Use this instruction when a user asks for access to a folder, application, group, or system, or reports \"Access denied\". Priority: P4 Low (P3 if tied to a deadline) Response target: Respond in 30 min / fulfil in 1 business day after approval Handled by: Tier 1 / Tier 2 Related: WI-17 Offboarding, WI-02 Onboarding, WI-10 Security Incidents",
+    "topics": [
+      "Access and Permission Requests",
+      "IT helpdesk",
+      "WI-09"
+    ],
+    "sections": [
+      {
+        "heading": "Common symptoms",
+        "items": [
+          "\"You do not have permission\" when opening a file, site, or application",
+          "New role or project needs additional access",
+          "User needs to be added to or removed from a group or list"
         ]
       },
       {
-        "heading": "F1105 — Registration information updates and TIN card",
+        "heading": "Information to collect",
         "items": [
-          "These updates are free online in ORUS: Digital TIN ID, contact information, contact person, civil status, residence address, transfer of registration record, additional line of business, new business name, new tax types or form types, and the 8 percent income tax option",
-          "Paper TIN card: BIR Form 1905, one original; latest 1x1 photo; government-issued ID. Personal appearance is mandatory. The first paper card is free. Replacement of a lost or damaged card costs P100, and a lost card needs an affidavit of loss. A fake TIN card is confiscated for destruction",
-          "Change of registered business address within the same RDO: BIR Form 1905, two originals, and a photocopy of the mayor's permit, DTI certificate, SEC certificate, or the appointment-of-officers form for a one-person corporation showing the new address"
+          "Exact resource (path, URL, application, or group name)",
+          "Access level needed: read, edit, or admin",
+          "Business reason and the duration (permanent or temporary)",
+          "Requester's manager and the data owner"
         ]
       },
       {
-        "heading": "F1105T — Transfer of registration",
+        "heading": "Resolution steps",
         "items": [
-          "Individuals not engaged in business, meaning E.O. 98, ONETT, or employee: BIR Form 1905, two originals",
-          "Business transfer to another RDO, head office or branch: submit three originals of BIR Form 1905 to the old RDO, all stamped Received. One copy goes to the new RDO with the Transfer Related Docket, one stays with the old RDO, and one stays with the taxpayer",
-          "Also submit to the old RDO three originals of the inventory of unused invoices, for destruction or for approval to use them in the new RDO, and three originals of a notarized Transfer Commitment Form if there are open cases",
-          "Submit to the new RDO two originals of BIR Form 1905. Non-individuals also submit the amended articles showing the new principal address and the certificate of filing of the amended articles"
+          "1 Confirm the requester. Check that the request comes from the user or their manager through the ticket portal, and that the user is an active employee.",
+          "2 Identify the owner. Find the data or application owner in the access register. Access must be approved by the owner, not only by the user's manager.",
+          "3 Obtain approval. Send the approval request to the owner and record the approval in the ticket. Do not grant access on verbal approval alone.",
+          "4 Apply least privilege. Grant only the level requested, using a group where possible rather than direct assignment. Set an expiry date for temporary access.",
+          "5 Check for conflicts. For finance, HR, and other sensitive systems, check segregation-of-duties rules and escalate to the application owner if there is a conflict.",
+          "6 Confirm access. Ask the user to sign out and in again, then open the resource. Allow time for group membership changes to replicate.",
+          "7 Record the change. Note who approved, what was granted, and any expiry date, so the access can be reviewed later."
         ]
       },
       {
-        "heading": "F1105C — Cancellation of TIN or closure",
+        "heading": "Escalate when",
         "items": [
-          "Death or identical or multiple TINs: BIR Form 1905, two originals, and a photocopy of the death certificate in case of death",
-          "Closure of a head office or branch, or cancellation because of dissolution, merger, or consolidation: BIR Form 1905; original list of ending inventory of goods, supplies, and capital goods; inventory and the unused invoices, supplementary invoices, and other unused accounting forms; original business notices and permits such as the ATP, NIRI, and CRM or POS accreditation and permit; and the original Certificate of Registration",
-          "No fee",
-          "A representative needs an SPA or a board resolution, written resolution, or secretary's certificate, plus IDs"
+          "Requests for administrator or privileged rights",
+          "Owner cannot be identified or does not respond within the approval window",
+          "User claims to have lost access that was never recorded as granted"
+        ]
+      }
+    ]
+  },
+  "WI-10_Security_Incidents_Phishing_Malware_and_Lost_Devices.pdf": {
+    "title": "WI-10 Security Incidents: Phishing, Malware and Lost Devices",
+    "documentType": "Work instruction",
+    "reference": "WI-10",
+    "issued": "v1.0",
+    "searchable": true,
+    "summary": "Use this instruction when a user reports a suspicious email, a security warning, signs of compromise, or a lost or stolen device. Speed matters more than perfect documentation. Priority: P1 Critical / P2 High, depending on impact Response target: Respond in 5 to 15 min; contain immediately Handled by: Tier 1 triage, then Security team Related: WI-01 Password Reset, WI-05 Email and Calendar, WI-11 Mobile Devices",
+    "topics": [
+      "Security Incidents: Phishing, Malware and Lost Devices",
+      "IT helpdesk",
+      "WI-10"
+    ],
+    "sections": [
+      {
+        "heading": "Common symptoms",
+        "items": [
+          "User clicked a link or opened an attachment in a suspicious email",
+          "Antivirus or endpoint alert on a device",
+          "Unexpected password change, MFA prompts the user did not trigger, or odd sent mail",
+          "Laptop, phone, or access badge lost or stolen"
+        ]
+      },
+      {
+        "heading": "Information to collect",
+        "items": [
+          "What happened, when, and what the user did (clicked, entered a password, downloaded a file)",
+          "Sender, subject, and the link or file (get the original message, not a screenshot)",
+          "Device, hostname, and location",
+          "Whether other users received the same message"
+        ]
+      },
+      {
+        "heading": "Resolution steps",
+        "items": [
+          "1 Stay calm and act fast. Thank the user for reporting. Tell them not to delete the message or restart the device unless told to, as this may remove evidence.",
+          "2 Raise the incident. Create a security incident ticket at P2 or higher and notify the Security team by the on-call process. Do not wait for the investigation to finish.",
+          "3 Contain the account. If credentials may be exposed, reset the password, revoke active sessions and tokens, and review MFA methods and mailbox forwarding rules.",
+          "4 Contain the device. For malware, isolate the device from the network through the endpoint security tool, or ask the user to disconnect from the network. Do not power off unless told to.",
+          "5 Handle lost or stolen devices. Lock or remotely wipe the device through device management, disable the account sessions, and record the loss time and location. The user should also report theft to the police if applicable.",
+          "6 Check for spread. Search for the same message across mailboxes and remove it. Block the sender, link, or file hash with the Security team.",
+          "7 Inform and record. Tell the user what has been done and what to expect. Record a clear timeline of actions in the ticket."
+        ]
+      },
+      {
+        "heading": "Escalate when",
+        "items": [
+          "Always involve the Security team for confirmed compromise, data exposure, or ransomware",
+          "Multiple users affected or evidence of spread: declare a major incident",
+          "Possible personal data breach: notify the Data Protection Officer without delay"
+        ]
+      }
+    ]
+  },
+  "WI-11_Mobile_Devices_and_Mobile_Email.pdf": {
+    "title": "WI-11 Mobile Devices and Mobile Email",
+    "documentType": "Work instruction",
+    "reference": "WI-11",
+    "issued": "v1.0",
+    "searchable": true,
+    "summary": "Use this instruction for company-issued or approved personal mobile devices, including email setup, enrolment, app issues, and sync problems. Priority: P3 Medium (P2 if the device is business critical) Response target: Respond in 15 min / resolve in 4 business hours Handled by: Tier 1 / Tier 2 Related: WI-10 Security Incidents, WI-01 Password Reset, WI-05 Email and Calendar",
+    "topics": [
+      "Mobile Devices and Mobile Email",
+      "IT helpdesk",
+      "WI-11"
+    ],
+    "sections": [
+      {
+        "heading": "Common symptoms",
+        "items": [
+          "Work email, calendar, or contacts not syncing on the phone",
+          "Cannot enrol the device in device management",
+          "Company app missing or failing to open",
+          "New phone setup, or device is non-compliant and blocked"
+        ]
+      },
+      {
+        "heading": "Information to collect",
+        "items": [
+          "Device make, model, and operating system version",
+          "Company-issued or personal device",
+          "Error message or screenshot",
+          "Whether the problem began after a phone update or a password change"
+        ]
+      },
+      {
+        "heading": "Resolution steps",
+        "items": [
+          "1 Check eligibility. Confirm the device is on the supported list and the user has approval for mobile access. Personal devices must accept the mobile security policy.",
+          "2 Check basic settings. Confirm mobile data or Wi-Fi works, the operating system is up to date, and the device passcode meets policy.",
+          "3 Check compliance. Open the device management console. A device that is non-compliant (jailbroken, out of date, no passcode) will be blocked from corporate data until it is fixed.",
+          "4 Re-enrol or re-add the account. Remove the work account, restart the device, and add it again through the company portal and authenticator app. Update the saved password after any change.",
+          "5 Fix sync issues. Check that mail, calendar, and contacts sync is on and not paused by battery saver. Clear the app cache if needed.",
+          "6 Restore apps. Install company apps from the company portal. Confirm the app permissions and that the user is signed in with the correct account.",
+          "7 Confirm with the user. Have the user send a test email and open a company app. Remind them to report loss or theft right away (see WI-10)."
+        ]
+      },
+      {
+        "heading": "Escalate when",
+        "items": [
+          "Device is lost or stolen (see WI-10)",
+          "Enrolment service errors affecting many users",
+          "Request to exempt a device from policy"
+        ]
+      }
+    ]
+  },
+  "WI-12_Video_Conferencing_and_Collaboration_Tools.pdf": {
+    "title": "WI-12 Video Conferencing and Collaboration Tools",
+    "documentType": "Work instruction",
+    "reference": "WI-12",
+    "issued": "v1.0",
+    "searchable": true,
+    "summary": "Use this instruction for problems joining or hosting online meetings, with audio or video devices, or with collaboration platforms such as Teams, SharePoint, and OneDrive. Priority: P3 Medium (P2 if an executive meeting is about to start) Response target: Respond in 10 min / resolve in 1 business hour Handled by: Tier 1 Related: WI-16 Meeting Room AV, WI-06 Network, WI-03 Laptops and Peripherals",
+    "topics": [
+      "Video Conferencing and Collaboration Tools",
+      "IT helpdesk",
+      "WI-12"
+    ],
+    "sections": [
+      {
+        "heading": "Common symptoms",
+        "items": [
+          "Cannot join a meeting, or the link does not open",
+          "No sound, echo, or microphone not detected",
+          "Camera not working, or poor video quality",
+          "Screen sharing fails, or files will not sync or open"
+        ]
+      },
+      {
+        "heading": "Information to collect",
+        "items": [
+          "Which platform and the meeting link or time",
+          "Whether the issue is audio, video, sharing, or sign-in",
+          "Headset, camera, and browser or app version",
+          "Whether others in the same meeting are affected"
+        ]
+      },
+      {
+        "heading": "Resolution steps",
+        "items": [
+          "1 Check the service status. Look at the platform status page. If there is a vendor outage, update the ticket, inform the user, and advise a backup channel such as a phone dial-in.",
+          "2 Check sign-in and version. Confirm the user is signed in with the work account and the app is on the current version. Restart the app or try the web version.",
+          "3 Check audio and video devices. In the app's device settings, select the correct microphone, speaker, and camera. Check the operating system privacy settings allow the app to use them, and that the device is not muted.",
+          "4 Test other connections. Close heavy apps, switch from Wi-Fi to wired, or leave the VPN if the platform allows. Check the user's bandwidth for slow video.",
+          "5 Fix sharing and permissions. For screen sharing, check the meeting policy and operating system screen-recording permissions. For file problems, check the sharing link and the user's permission on the site or folder.",
+          "6 Fix sync errors. For OneDrive or SharePoint sync issues, check the sync client status, free disk space, path length, and invalid file names. Reset the sync client if needed.",
+          "7 Test and confirm. Run a test call with the user, and confirm that the user can be heard, seen, and can share their screen."
+        ]
+      },
+      {
+        "heading": "Escalate when",
+        "items": [
+          "Platform-wide outage, or a policy setting needs a change by the collaboration team",
+          "Meeting room equipment faults (raise with facilities or the AV team)",
+          "Data sharing concerns, such as files shared with the wrong people (see WI-10)"
+        ]
+      }
+    ]
+  },
+  "WI-13_Backup_File_Recovery_and_Restore_Requests.pdf": {
+    "title": "WI-13 Backup, File Recovery and Restore Requests",
+    "documentType": "Work instruction",
+    "reference": "WI-13",
+    "issued": "v1.0",
+    "searchable": true,
+    "summary": "Use this instruction when a user needs to recover a deleted, overwritten, or corrupted file, folder, or mailbox item, or when a system or server restore is requested. Priority: P3 Medium (P2 if business-critical data is lost) Response target: Respond in 30 min / restore in 4 business hours Handled by: Tier 2, then Infrastructure Related: WI-10 Security Incidents, WI-09 Access Requests, WI-05 Email and Calendar",
+    "topics": [
+      "Backup, File Recovery and Restore Requests",
+      "IT helpdesk",
+      "WI-13"
+    ],
+    "sections": [
+      {
+        "heading": "Common symptoms",
+        "items": [
+          "File or folder deleted by mistake",
+          "A document was saved over with the wrong content",
+          "File is corrupted and will not open",
+          "Mailbox items missing after a clean-up",
+          "A restore of a server or a database is requested"
+        ]
+      },
+      {
+        "heading": "Information to collect",
+        "items": [
+          "Full path or location of the file, and its exact name",
+          "Date and time it was last known to be correct",
+          "How it was lost (deleted, overwritten, corrupted, ransomware suspected)",
+          "Who owns the data, and how urgent the need is"
+        ]
+      },
+      {
+        "heading": "Resolution steps",
+        "items": [
+          "1 Check the easy options first. Look in the Recycle Bin, the cloud storage recycle bin, and the Deleted Items or Recoverable Items folder. Most losses are recovered here without a restore.",
+          "2 Try version history. In OneDrive, SharePoint, or the file server's Previous Versions, open the history and restore the last good version. Confirm with the user before replacing the current file.",
+          "3 Confirm what is needed. If the data is not in these places, confirm the exact item, location, and point in time. A precise request saves time and avoids restoring the wrong data.",
+          "4 Get approval where required. Restores of shared or sensitive data need approval from the data owner. A restore of a system needs a change record and approval from the service owner.",
+          "5 Run the restore to a safe location. Restore to an alternative location first, never directly over the live data. Check the restored copy with the user before moving it back.",
+          "6 Check for wider problems. If many files have changed or been renamed at once, or extensions look unusual, stop and treat it as a possible ransomware event (see WI-10).",
+          "7 Confirm and record. Ask the user to open the file and confirm that the content is correct. Record the restore point, the source backup, and the time it took."
+        ]
+      },
+      {
+        "heading": "Escalate when",
+        "items": [
+          "Backup job failed or the required restore point does not exist",
+          "Large restores, server restores, or database restores",
+          "Signs of ransomware, mass deletion, or malicious activity"
+        ]
+      }
+    ]
+  },
+  "WI-14_Business_Application_and_Line_of_Business_System_Issues.pdf": {
+    "title": "WI-14 Business Application and Line-of-Business System Issues",
+    "documentType": "Work instruction",
+    "reference": "WI-14",
+    "issued": "v1.0",
+    "searchable": true,
+    "summary": "Use this instruction when a business application is not working, is slow, or gives errors, such as ERP, CRM, payroll, HR, or finance systems. The goal is to find out quickly whether the fault is local, the user's account, or the application itself. Priority: P2 High (P1 if a critical business process is stopped) Response target: Respond in 15 min / update hourly Handled by: Tier 1 triage, then Application support Related: WI-09 Access Requests, WI-20 Browser and Web Apps, WI-04 Software",
+    "topics": [
+      "Business Application and Line-of-Business System Issues",
+      "IT helpdesk",
+      "WI-14"
+    ],
+    "sections": [
+      {
+        "heading": "Common symptoms",
+        "items": [
+          "Error message on login or when saving a record",
+          "Application is slow or times out",
+          "A report or batch job fails",
+          "Data is missing or displays incorrectly",
+          "A page works for some users but not others"
+        ]
+      },
+      {
+        "heading": "Information to collect",
+        "items": [
+          "Name of the application and the function being used",
+          "Exact error message, screenshot, and the time it occurred",
+          "Number of users affected and which departments",
+          "Whether it worked before, and any recent change or upgrade"
+        ]
+      },
+      {
+        "heading": "Resolution steps",
+        "items": [
+          "1 Check for known issues. Look in the incident list and the status page for a known outage or planned maintenance. If one exists, link the ticket and give the user the update.",
+          "2 Establish the scope. Ask whether colleagues have the same problem. One user points to the account or device. Many users point to the application or infrastructure.",
+          "3 Reproduce the fault. Try the same steps on your own test account or the user's device with remote assistance. Note exactly where it fails.",
+          "4 Check the user's account. Verify the account is active and the user has the right role, licence, and permissions. Check for recent changes to roles.",
+          "5 Check the client side. Clear the browser cache, try another browser, test from another device, and check for required plug-ins or client updates.",
+          "6 Capture evidence for support. Record error text, timestamps, user IDs, transaction names, and screenshots. Include steps to reproduce. Good evidence shortens the fix time.",
+          "7 Escalate and keep the user informed. Pass the ticket to the application support team with the evidence. Agree on a workaround if there is one, and update the user at the agreed intervals."
+        ]
+      },
+      {
+        "heading": "Escalate when",
+        "items": [
+          "Multiple users affected, or a critical process (payroll, month-end close, order entry) is blocked",
+          "Data appears wrong, lost, or exposed (raise a security and data incident)",
+          "The fault started right after a release or change"
+        ]
+      }
+    ]
+  },
+  "WI-15_Telephony_Desk_Phones_and_Softphone_Issues.pdf": {
+    "title": "WI-15 Telephony, Desk Phones and Softphone Issues",
+    "documentType": "Work instruction",
+    "reference": "WI-15",
+    "issued": "v1.0",
+    "searchable": true,
+    "summary": "Use this instruction for problems with desk phones, softphones, voicemail, call forwarding, number changes, and calling headsets. Priority: P3 Medium (P2 if a team or reception is without phones) Response target: Respond in 15 min / resolve in 2 business hours Handled by: Tier 1, then Telephony team Related: WI-06 Network, WI-12 Video Conferencing, WI-18 Asset Management",
+    "topics": [
+      "Telephony, Desk Phones and Softphone Issues",
+      "IT helpdesk",
+      "WI-15"
+    ],
+    "sections": [
+      {
+        "heading": "Common symptoms",
+        "items": [
+          "Phone shows no dial tone or 'registering'",
+          "Calls drop, crackle, or have one-way audio",
+          "Voicemail not working or not delivering to email",
+          "Call forwarding or hunt group not working",
+          "Softphone cannot sign in"
+        ]
+      },
+      {
+        "heading": "Information to collect",
+        "items": [
+          "User, extension or number, and location",
+          "Desk phone model or softphone application",
+          "Whether inbound, outbound, or both are affected",
+          "Time of the failed calls, and the numbers involved"
+        ]
+      },
+      {
+        "heading": "Resolution steps",
+        "items": [
+          "1 Check for a wider fault. See if other phones in the same area or building are affected, and check the telephony monitoring. If many are, escalate to the Telephony team at once.",
+          "2 Check power and connection. Confirm a desk phone has power (network port or adapter) and a network cable. Try another port or a known-good cable.",
+          "3 Restart the device. Power cycle the phone. For a softphone, sign out, close the app, and sign back in. Check the user's licence and extension assignment.",
+          "4 Check audio devices. For one-way audio or poor quality, check the headset, volume, and the audio device selected. Test with another headset.",
+          "5 Check network quality. Poor audio is often caused by network congestion or Wi-Fi. Test on a wired connection and check for VPN use, which can add delay.",
+          "6 Check call settings. Confirm call forwarding, do-not-disturb, hunt group membership, and voicemail settings in the telephony portal.",
+          "7 Make a test call. Place inbound and outbound calls with the user. Confirm voicemail and forwarding if relevant."
+        ]
+      },
+      {
+        "heading": "Escalate when",
+        "items": [
+          "Many phones or a whole site affected, or calls to emergency numbers cannot be made",
+          "Contact centre queue or hunt group fault",
+          "Trunk, number porting, or carrier faults"
+        ]
+      }
+    ]
+  },
+  "WI-16_Meeting_Room_Display_and_Audio_Visual_Equipment.pdf": {
+    "title": "WI-16 Meeting Room, Display and Audio-Visual Equipment",
+    "documentType": "Work instruction",
+    "reference": "WI-16",
+    "issued": "v1.0",
+    "searchable": true,
+    "summary": "Use this instruction for faults with meeting room equipment: displays, projectors, conferencing systems, microphones, speakers, cameras, touch panels, and wireless presentation. Priority: P3 Medium (P2 if an executive or client meeting is within the hour) Response target: Respond in 10 min / on-site within 30 min for urgent Handled by: Tier 1, then deskside / AV team Related: WI-12 Video Conferencing, WI-15 Telephony, WI-06 Network",
+    "topics": [
+      "Meeting Room, Display and Audio-Visual Equipment",
+      "IT helpdesk",
+      "WI-16"
+    ],
+    "sections": [
+      {
+        "heading": "Common symptoms",
+        "items": [
+          "Room display shows no signal",
+          "Conferencing system will not start a meeting",
+          "No sound, echo, or feedback in the room",
+          "Laptop will not connect to the screen",
+          "Touch panel is frozen or shows an error"
+        ]
+      },
+      {
+        "heading": "Information to collect",
+        "items": [
+          "Room name and building, and the meeting start time",
+          "Equipment affected and any messages on the screen",
+          "Whether the problem is with a laptop connection or the room system",
+          "Who is hosting, and whether the meeting has external guests"
+        ]
+      },
+      {
+        "heading": "Resolution steps",
+        "items": [
+          "1 Prioritize by meeting time. If a meeting is imminent, get a quick workaround ready first: join from a laptop and use the room display or a phone dial-in.",
+          "2 Check power and cables. Confirm the display, codec, and speakers are on and the right input is selected. Reseat HDMI, USB, and network cables.",
+          "3 Check the room system. Look at the touch panel and the room system status in the management portal. Restart the room system if it is offline.",
+          "4 Check the laptop connection. Try another cable or adapter, set display mode to extend or duplicate, and check the resolution. Try a second laptop to separate laptop and room faults.",
+          "5 Check audio. Check that microphones are not muted and that the right speaker and microphone are chosen. Reduce echo by lowering the volume or muting unused devices.",
+          "6 Check network and sign-in. Confirm the room account is signed in and that the system has a network connection. Check the calendar link if meetings do not appear.",
+          "7 Test and record. Run a short test call with the user. Record the fault and the fix on the room's equipment record."
+        ]
+      },
+      {
+        "heading": "Escalate when",
+        "items": [
+          "Room system is offline and cannot be restored remotely",
+          "Hardware fault (display, camera, microphone, panel) that needs a vendor or AV engineer",
+          "Repeated faults in the same room, which may indicate a design or network issue"
+        ]
+      }
+    ]
+  },
+  "WI-17_Employee_Offboarding_and_Account_Termination.pdf": {
+    "title": "WI-17 Employee Offboarding and Account Termination",
+    "documentType": "Work instruction",
+    "reference": "WI-17",
+    "issued": "v1.0",
+    "searchable": true,
+    "summary": "Use this instruction when an employee, contractor, or intern leaves, moves roles, or needs urgent access removal. It protects company data and ensures licences and equipment are recovered. Priority: P3 Medium (P1 for urgent security terminations) Response target: Immediate for security cases / on the last working day otherwise Handled by: Tier 2, with Security and HR Related: WI-09 Access Requests, WI-02 Onboarding, WI-18 Asset Management",
+    "topics": [
+      "Employee Offboarding and Account Termination",
+      "IT helpdesk",
+      "WI-17"
+    ],
+    "sections": [
+      {
+        "heading": "Common symptoms",
+        "items": [
+          "HR notice of a resignation or end of contract",
+          "Manager requests removal of access for a leaver",
+          "Urgent termination request from HR or Security",
+          "Access remains after someone changes teams"
+        ]
+      },
+      {
+        "heading": "Information to collect",
+        "items": [
+          "Name, employee ID, last working day, and time of access removal",
+          "Whether the termination is standard, urgent, or sensitive",
+          "Manager and nominated person for mailbox and file handover",
+          "Equipment issued and any pending returns"
+        ]
+      },
+      {
+        "heading": "Resolution steps",
+        "items": [
+          "1 Confirm the request. Accept offboarding requests only from HR or the line manager through the approved process. Confirm the dates and whether this is an urgent security removal.",
+          "2 Time the access removal. For standard exits, schedule account disablement for the end of the last working day. For urgent cases, disable immediately and revoke active sessions.",
+          "3 Disable and secure the account. Disable sign-in, reset the password, revoke sessions and tokens, remove MFA methods, and remove the user from groups and distribution lists.",
+          "4 Handle mailbox and files. Set an out-of-office or forwarding to the manager as approved. Convert to a shared mailbox or apply retention as per policy. Transfer file ownership and cloud storage content to the manager.",
+          "5 Recover equipment. Arrange the return of the laptop, phone, tokens, and badge. Record the asset tags, wipe devices after data has been secured, and update the register.",
+          "6 Remove licences and external access. Remove software licences, application accounts, VPN access, and any third-party access. Check shared accounts and update shared passwords the person knew.",
+          "7 Confirm and record. Verify the account is disabled and has no active sessions. Attach the completed checklist and the approvals, and set the deletion date according to the retention policy."
+        ]
+      },
+      {
+        "heading": "Escalate when",
+        "items": [
+          "Termination involves a dispute, investigation, or legal hold (involve HR, Legal, and Security)",
+          "Evidence of data copying or unusual activity before departure",
+          "Equipment is not returned, or a device is lost"
+        ]
+      }
+    ]
+  },
+  "WI-18_Hardware_Requests_Asset_Management_and_Returns.pdf": {
+    "title": "WI-18 Hardware Requests, Asset Management and Returns",
+    "documentType": "Work instruction",
+    "reference": "WI-18",
+    "issued": "v1.0",
+    "searchable": true,
+    "summary": "Use this instruction for requests for new or replacement hardware, loaner devices, accessories, asset moves, returns, and disposal. Accurate asset records are the basis for security, support, and audit. Priority: P4 Low (P3 if the user has no working device) Response target: Respond in 30 min / fulfil in 3 business days Handled by: Tier 2 / Asset team Related: WI-03 Laptops and Peripherals, WI-02 Onboarding, WI-17 Offboarding",
+    "topics": [
+      "Hardware Requests, Asset Management and Returns",
+      "IT helpdesk",
+      "WI-18"
+    ],
+    "sections": [
+      {
+        "heading": "Common symptoms",
+        "items": [
+          "User needs a new laptop, monitor, phone, or accessory",
+          "Device is due for replacement or beyond repair",
+          "Equipment is moving between users or locations",
+          "Device returned by a leaver or an unused device found",
+          "Asset record does not match the device in use"
+        ]
+      },
+      {
+        "heading": "Information to collect",
+        "items": [
+          "User, department, cost centre, and manager approval",
+          "Equipment needed, quantity, and business reason",
+          "Required date, and location for delivery",
+          "Asset tag, serial number, and current user for replacements and returns"
+        ]
+      },
+      {
+        "heading": "Resolution steps",
+        "items": [
+          "1 Check the standard. Compare the request with the hardware standard for the role. Standard items can be approved by the manager. Non-standard items need further approval and a business case.",
+          "2 Check stock and warranty. Look in stock for suitable equipment before ordering. For a replacement, check the warranty status and whether a repair is possible.",
+          "3 Get approvals and raise the order. Attach the manager's approval and the cost centre. Raise a purchase request if stock is not available, and tell the user the expected delivery time.",
+          "4 Prepare the equipment. Image and enrol the device, install the standard software, apply encryption and security policies, and label it with the asset tag.",
+          "5 Deliver and hand over. Hand the device to the user, check their identity, and record the handover. Show them how to sign in and where to get help. Get a signature or an electronic acknowledgement.",
+          "6 Update the asset register. Record the serial number, asset tag, user, location, status, and purchase and warranty dates. Mark old devices as returned or pending disposal.",
+          "7 Process returns and disposal. Collect old equipment, back up data if needed, securely wipe the drive, and record the wipe. Dispose of or recycle through the approved supplier and keep the certificate."
+        ]
+      },
+      {
+        "heading": "Escalate when",
+        "items": [
+          "Request exceeds the budget or the hardware standard",
+          "Equipment is lost, stolen, or not returned (see WI-10)",
+          "Stock levels are too low to meet demand"
+        ]
+      }
+    ]
+  },
+  "WI-19_Operating_System_Updates_Patching_and_Restart_Issues.pdf": {
+    "title": "WI-19 Operating System Updates, Patching and Restart Issues",
+    "documentType": "Work instruction",
+    "reference": "WI-19",
+    "issued": "v1.0",
+    "searchable": true,
+    "summary": "Use this instruction when a device fails to install updates, restarts unexpectedly, is flagged non-compliant for missing patches, or has problems after an update. Priority: P3 Medium (P2 if many devices are affected) Response target: Respond in 30 min / resolve in 4 business hours Handled by: Tier 2, then Endpoint team Related: WI-03 Laptops and Peripherals, WI-04 Software, WI-10 Security Incidents",
+    "topics": [
+      "Operating System Updates, Patching and Restart Issues",
+      "IT helpdesk",
+      "WI-19"
+    ],
+    "sections": [
+      {
+        "heading": "Common symptoms",
+        "items": [
+          "Update stuck or fails with an error code",
+          "Device keeps asking to restart",
+          "Device flagged as non-compliant for missing updates",
+          "Problems started right after an update",
+          "Update takes too long or uses too much bandwidth"
+        ]
+      },
+      {
+        "heading": "Information to collect",
+        "items": [
+          "Hostname, operating system version, and build number",
+          "Update name or KB number, and the error code",
+          "When the update started, and how long the device has been up",
+          "Whether other devices have the same issue"
+        ]
+      },
+      {
+        "heading": "Resolution steps",
+        "items": [
+          "1 Check the scope. Check the update management console. If many devices fail the same update, treat it as a possible bad release, stop the rollout, and escalate to the Endpoint team.",
+          "2 Check the basics. Check free disk space (at least 15 GB is a good minimum), battery or power, and the network connection. Restart the device to complete any pending update.",
+          "3 Review the error. Look at the update history and the error code. Search the knowledge base and the vendor documentation for the code.",
+          "4 Run the built-in troubleshooter. Run the update troubleshooter, reset the update components, and check the system file integrity. Retry the installation.",
+          "5 Clear a blocked update. Check for third-party security tools, VPN, or proxy that block the update. Install the update manually from the update catalogue if needed.",
+          "6 Roll back if necessary. If the device is unstable after an update, uninstall the update or restore from a restore point. Pause the update on that device and report to the Endpoint team.",
+          "7 Confirm compliance. Check the device reports as compliant in the console. Tell the user when to restart and how to schedule restarts outside working time."
+        ]
+      },
+      {
+        "heading": "Escalate when",
+        "items": [
+          "Many devices fail the same update",
+          "Update causes data loss, boot failure, or business application faults",
+          "Critical security patches cannot be installed within the required timeframe"
+        ]
+      }
+    ]
+  },
+  "WI-20_Web_Browser_Intranet_and_Web_Application_Problems.pdf": {
+    "title": "WI-20 Web Browser, Intranet and Web Application Problems",
+    "documentType": "Work instruction",
+    "reference": "WI-20",
+    "issued": "v1.0",
+    "searchable": true,
+    "summary": "Use this instruction when a user cannot open or use a website, an intranet page, or a web application in the browser, or sees certificate, sign-in, or loading errors. Priority: P3 Medium (P2 if a company-wide web service is affected) Response target: Respond in 15 min / resolve in 2 business hours Handled by: Tier 1, then Tier 2 / Web team Related: WI-10 Security Incidents, WI-06 Network, WI-14 Business Applications",
+    "topics": [
+      "Web Browser, Intranet and Web Application Problems",
+      "IT helpdesk",
+      "WI-20"
+    ],
+    "sections": [
+      {
+        "heading": "Common symptoms",
+        "items": [
+          "Page will not load or times out",
+          "Certificate or 'connection is not private' warning",
+          "Endless sign-in loop with single sign-on",
+          "Page layout broken or buttons do nothing",
+          "A site is blocked by the web filter"
+        ]
+      },
+      {
+        "heading": "Information to collect",
+        "items": [
+          "The full address (URL) and the exact error message",
+          "Browser and version, and whether other browsers show the same",
+          "Whether it works on another device, network, or for another user",
+          "When it last worked, and any recent change"
+        ]
+      },
+      {
+        "heading": "Resolution steps",
+        "items": [
+          "1 Check the service. Test the site from your own device and check the status page. If the site is down for everyone, link to the incident and update the user.",
+          "2 Test another browser. Try the site in a second browser and in a private window. This separates a browser fault from an account or site fault.",
+          "3 Clear cache and cookies. Clear the cached files and cookies for the site, restart the browser, and try again. Disable extensions and test.",
+          "4 Check date, time and certificate. Check the device date and time are right, and read the certificate warning. A wrong clock or an untrusted certificate is a common cause. Do not tell users to bypass real warnings.",
+          "5 Check sign-in and policies. For sign-in loops, clear cookies, check the account and MFA status, and test with another browser profile. Check for conflicting accounts signed in at the same time.",
+          "6 Check the web filter and network. If the site is blocked, check the category and the business need. Request an unblock through the approved process rather than disabling the filter. Test on another network.",
+          "7 Update or reset the browser. Update the browser to the current version, reset it to defaults if needed, and confirm that the user's bookmarks and passwords are synced first."
+        ]
+      },
+      {
+        "heading": "Escalate when",
+        "items": [
+          "Certificate errors on internal or company sites affecting many users",
+          "Suspected malicious site, redirect, or browser hijack (see WI-10)",
+          "Web filter change requests that need Security approval"
         ]
       }
     ]

@@ -5,13 +5,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bir: {
-          blue: '#0069a2',
-          navy: '#004aac',
-          yellow: '#ffde2a',
-          gold: '#edc81b',
-          teal: '#03989d',
-          red: '#c81a25',
+        desk: {
+          ink: '#0f2744',
+          blue: '#1a4f8b',
+          teal: '#0c8f84',
+          amber: '#f2b544',
+          coral: '#d4534a',
         },
       },
     },

@@ -1,8 +1,8 @@
-# ChatBIR
+# AI-Tee
 
-Your BIR-tual Assistant for BIR processes and requirements. A streaming chat app over BIR taxpayer guides, built with [Next.js 15](https://nextjs.org/), the [Vercel AI SDK](https://sdk.vercel.ai/), and [Upstash Vector](https://upstash.com/docs/vector).
+Your AI buddy for IT helpdesk concerns. A helpful, friendly, and witty assistant. A streaming chat app built with [Next.js 15](https://nextjs.org/), the [Vercel AI SDK](https://sdk.vercel.ai/), and [Upstash Vector](https://upstash.com/docs/vector).
 
-ChatBIR greets the user, answers in Markdown, and keeps retrieved passages under a collapsed **Sources** control. A disclaimer under the message box asks the user to confirm each answer.
+AI-Tee greets the user, answers everyday IT problems in Markdown, and keeps retrieved passages under a collapsed **Sources** control. A disclaimer under the message box asks the user to confirm anything that changes access, data, or company policy. Answers follow the IT helpdesk work instructions in `data/`.
 
 ## What's here
 
@@ -11,30 +11,18 @@ rag-chatbot/
 ├── app/
 │   ├── globals.css
 │   ├── layout.tsx                        # Geist, page title
-│   ├── page.tsx                          # ChatBIR UI — useChat, Markdown, sources
+│   ├── page.tsx                          # AI-Tee UI — useChat, Markdown, sources
 │   └── api/chat/route.ts                 # RAG-as-tool-call handler
 ├── lib/
 │   └── seed.ts                           # Embeds every PDF in data/
-├── data/                                 # BIR guides (PDFs only are seeded)
-├── public/
-│   └── chatbir-logo.jpg
+├── data/                                 # IT helpdesk work instructions (PDFs only are seeded)
 ├── steps/                                # Workshop snapshots (not the live UI)
 ├── package.json
 ├── .env.example
 └── README.md
 ```
 
-`data/` currently holds:
-
-- `01_Citizens_Charter_2026.pdf`
-- `02_ORUS_User_Guide_2024.pdf`
-- `03_Books_of_Accounts_ORUS_RMC_04_2026.pdf`
-- `04_Invoicing_RMC_77_2024.pdf`
-- `05_Online_Sellers_Taxpayer_Guide.pdf`
-- `06_eBIRForms_Job_Aid.pdf`
-- `07_COR_eCOR_Registration_Seal_RMC_38_2026.pdf`
-- `08_Taxpayer_Portal_RMC_53_2026.pdf`
-- `09_Books_of_Accounts_CDR_2024.pdf`
+`data/` currently holds IT helpdesk work instructions WI-01 through WI-20, from password reset and onboarding through printers, VPN, security incidents, and web apps. `sources.json` is the catalog AI-Tee uses to choose an instruction.
 
 ## Setup
 
@@ -64,17 +52,17 @@ npm run dev
 # open http://localhost:3000
 ```
 
-The first message is ChatBIR's greeting. Try asking:
+The first message is AI-Tee's greeting. Try asking:
 
-- *"What documents do I need to apply for a TIN?"*
-- *"When is the filing of ITR?"*
-- *"How do I register through ORUS?"*
+- *"I got locked out of my email. What should I try first?"*
+- *"The office printer says offline. Where do I start?"*
+- *"How do I tell a VPN problem from a Wi-Fi problem?"*
 
 Tokens stream into the assistant bubble as Markdown. The list follows the newest reply. **Sources** stays collapsed until you open it; each hit shows the PDF name, page, similarity score, and chunk text.
 
 ## Workshop snapshots
 
-The `/steps` folder is the original Week 14A walkthrough. Copying those files over `app/page.tsx` or `app/api/chat/route.ts` replaces the ChatBIR UI and handler.
+The `/steps` folder is the original Week 14A walkthrough. Copying those files over `app/page.tsx` or `app/api/chat/route.ts` replaces the AI-Tee UI and handler.
 
 | Step | Files to copy | What it shows |
 | ---- | ------------- | ------------- |
