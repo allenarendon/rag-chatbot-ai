@@ -10,46 +10,6 @@
       "Password Reset and Account Lockout",
       "IT helpdesk",
       "WI-01"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "\"Incorrect password\" or \"Account locked\" message at sign-in",
-          "Password expired and the change prompt fails",
-          "MFA code not received, or authenticator app lost or replaced",
-          "Repeated prompts to sign in to Microsoft 365 or other apps"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Full name, username, and employee ID",
-          "Which system or application shows the error, and the exact message",
-          "Device in use and whether it is on the corporate network or remote",
-          "When the problem started, and whether the password was changed recently"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Verify identity. Confirm the caller using at least two items from the approved verification list (employee ID, manager name, date of birth on file, callback to the registered number). Never reset on the strength of an email request alone.",
-          "2 Check account status. Open the directory console (Active Directory or Entra ID). Check if the account is locked, disabled, expired, or flagged for risky sign-in.",
-          "3 Find the lockout source. If the account is locked, review the lockout source (stale mobile mail profile, mapped drive, saved credential, scheduled task) so it does not lock again.",
-          "4 Unlock or reset. Unlock the account, or use the self-service reset portal where possible. If you must reset, set a temporary password and require a change at next sign-in.",
-          "5 Deliver credentials safely. Give the temporary password by phone or to the registered mobile number. Never put passwords in the ticket, chat, or email.",
-          "6 Handle MFA issues. For a lost or replaced phone, verify identity, remove the old authentication method, and guide the user to re-register. Issue a temporary access pass if policy allows.",
-          "7 Confirm sign-in works. Stay with the user until sign-in succeeds on the device and on one cloud application. Ask them to update saved passwords on phones and mapped drives."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Account shows signs of compromise (impossible-travel alerts, unknown devices, forwarding rules): raise a security incident (see WI-10)",
-          "Account is disabled by HR or Security and you did not disable it",
-          "Directory sync errors, or the reset fails with a system error"
-        ]
-      }
     ]
   },
   "WI-02_New_User_Onboarding_and_Account_Setup.pdf": {
@@ -63,44 +23,6 @@
       "New User Onboarding and Account Setup",
       "IT helpdesk",
       "WI-02"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "Onboarding request form submitted by HR",
-          "Manager requests equipment and access for an upcoming start date"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Full legal name, preferred name, job title, department, and manager",
-          "Start date, work location, and employment type (staff, contractor, intern)",
-          "Required applications, shared folders, and groups (use the role template if one exists)",
-          "Hardware needs (laptop, monitor, phone, headset) and any special requirements"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Validate the request. Confirm the HR approval and manager sign-off are attached. Check the start date and that no duplicate account exists.",
-          "2 Create the identity. Create the user in the directory using the naming standard. Set the manager, department, job title, and location attributes.",
-          "3 Assign licences and mailbox. Assign the licence bundle for the role. Confirm the mailbox is created and added to the correct distribution lists and teams.",
-          "4 Apply role-based access. Add the user to the security groups defined for the role template. Anything outside the template needs separate data-owner approval (see WI-09).",
-          "5 Prepare the device. Image the laptop, enrol it in device management, apply encryption, and install the standard software. Record the asset tag and serial number.",
-          "6 Set up MFA and credentials. Generate a temporary password and share it with the manager by an approved secure method. Schedule MFA enrolment for the first day.",
-          "7 Hand over and verify. On day one, confirm the user can sign in, send email, reach the VPN and key applications, and print. Walk through the self-service portal and how to raise tickets."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Approvals are missing or unclear, or access requested conflicts with segregation-of-duties rules",
-          "Hardware is not available in time for the start date",
-          "Role template does not exist or is out of date"
-        ]
-      }
     ]
   },
   "WI-03_Laptop_Desktop_and_Peripheral_Issues.pdf": {
@@ -114,46 +36,6 @@
       "Laptop, Desktop and Peripheral Issues",
       "IT helpdesk",
       "WI-03"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "Device will not power on, boots to a black screen, or restarts unexpectedly",
-          "Very slow performance, freezing, or overheating",
-          "Keyboard, mouse, webcam, headset, or docking station not working",
-          "Blue screen errors, disk full warnings, or battery not charging"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Asset tag or hostname, make and model",
-          "Exact symptoms, error text, and when it started",
-          "Any recent changes (updates, new software, drops or spills)",
-          "Whether the problem follows the user to another device or dock"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Check the basics. Confirm the charger is connected and the outlet works, cables are firm, and the device is not in sleep or airplane mode. Hold the power button for 15 seconds, then try again.",
-          "2 Isolate the fault. Disconnect all peripherals and test with a known-good charger, dock, or mouse. This separates a peripheral problem from a device problem.",
-          "3 Review system health. Remotely check CPU, memory, and disk usage, pending updates, uptime, and event logs. Restart if uptime is over 7 days.",
-          "4 Clear common causes. Free disk space, remove unneeded start-up items, run the manufacturer diagnostics, and install pending operating system and driver updates.",
-          "5 Back up user data. Before any repair or rebuild, confirm user data is synced to cloud storage or backed up. Do not reimage without confirmation from the user.",
-          "6 Repair or replace. If hardware has failed, log a warranty claim with the vendor or issue a loaner device from stock. Record the serial numbers of both devices.",
-          "7 Verify with the user. Confirm the user can sign in and open their key applications. Collect any returned faulty hardware and update the asset register."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Suspected physical damage, liquid exposure, or battery swelling (tell the user to power off and stop charging)",
-          "Repeated crashes after a rebuild, suggesting a hardware fault",
-          "Lost or stolen device: raise a security incident immediately (see WI-10)"
-        ]
-      }
     ]
   },
   "WI-04_Software_Installation_Updates_and_Licensing.pdf": {
@@ -167,46 +49,6 @@
       "Software Installation, Updates and Licensing",
       "IT helpdesk",
       "WI-04"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "User requests an application not on their device",
-          "Installation fails or is blocked by policy",
-          "\"Unlicensed product\" or \"trial expired\" message",
-          "Application crashes after an update"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Application name, version, and business reason",
-          "Hostname and operating system",
-          "Exact error message or screenshot",
-          "Manager approval for software that carries a cost"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Check the approved catalogue. Look in the software catalogue or company portal first. If the application is listed, guide the user to install it from there.",
-          "2 Confirm approval. If the software is not in the catalogue, confirm the manager's approval and a licence cost centre. Send unapproved software to the security and procurement review process.",
-          "3 Check licence availability. Look in the licence tracker for free seats. If none are available, raise a procurement request and tell the user the expected timeline.",
-          "4 Install through the managed tool. Deploy through the endpoint management tool (for example Intune or SCCM) rather than a manual install, so it stays patched and inventoried.",
-          "5 Fix failures. For failed installs, check free disk space, pending restarts, administrator rights, and conflicts with older versions. Review the installer log and retry.",
-          "6 Assign and activate the licence. Assign the licence to the user's account and confirm activation. Remove the licence from users who have left or no longer need it.",
-          "7 Validate with the user. Confirm the application opens, the user can sign in, and any key files open correctly."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Software fails security review, or is on the prohibited list",
-          "Vendor-side licensing or activation errors",
-          "A rollout or update causes the same failure on many devices (possible major incident)"
-        ]
-      }
     ]
   },
   "WI-05_Email_and_Calendar_Problems.pdf": {
@@ -220,46 +62,6 @@
       "Email and Calendar Problems",
       "IT helpdesk",
       "WI-05"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "Cannot send or receive messages, or messages stuck in Outbox",
-          "Outlook shows \"Disconnected\" or keeps asking for a password",
-          "Mailbox full, or shared mailbox missing",
-          "Meeting invites not appearing, or calendar not syncing"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Email address affected and any bounce-back (NDR) text",
-          "Whether the problem occurs in Outlook desktop, web, or mobile",
-          "Time of the last successful send or receive",
-          "Whether the issue affects one user, a group, or everyone"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Scope the problem. Check the service health dashboard first. If the platform is degraded, link the ticket to the major incident and update the user.",
-          "2 Test in webmail. Ask the user to sign in to Outlook on the web. If it works there, the fault is with the desktop client or profile. If it fails, the fault is with the account or mailbox.",
-          "3 Check the account and mailbox. Verify the licence, mailbox size and quota, sign-in status, and any mail flow rules, forwarding, or blocked-sender entries.",
-          "4 Fix the client. Restart Outlook in safe mode, clear cached credentials, run the Office repair, or create a new Outlook profile. Re-add the mailbox if it is a shared mailbox.",
-          "5 Read the bounce message. For delivery failures, read the NDR code. Common causes are a mistyped address, recipient mailbox full, message too large, or a blocked domain. Check the message trace for details.",
-          "6 Check for spam and quarantine. If messages are missing, check the junk folder and the admin quarantine. Release safe messages and add the sender to the allow list if approved.",
-          "7 Confirm resolution. Ask the user to send and receive a test message and check that the calendar shows correct meetings."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Suspected account compromise, unexpected forwarding rules, or phishing campaign (see WI-10)",
-          "Mail flow problems affecting multiple users or external delivery",
-          "Mailbox corruption, or a restore request for deleted items beyond retention"
-        ]
-      }
     ]
   },
   "WI-06_Wi_Fi_and_Network_Connectivity.pdf": {
@@ -273,46 +75,6 @@
       "Wi-Fi and Network Connectivity",
       "IT helpdesk",
       "WI-06"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "\"No internet\" or limited connectivity indicator",
-          "Cannot join the corporate Wi-Fi, or keeps disconnecting",
-          "Wired port is dead, or the dock does not give a connection",
-          "Websites or internal apps are slow or time out"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Location (building, floor, desk) and device hostname",
-          "Wi-Fi or wired, and the network name (SSID)",
-          "Whether other users nearby are affected",
-          "Result of a ping to the gateway and to an external site"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Scope the issue. Ask nearby users or check the monitoring dashboard. If many users are affected, treat it as an outage and escalate to the Network team at once.",
-          "2 Check the device. Confirm Wi-Fi is on and airplane mode is off. Toggle the adapter, then restart the device. Check that the IP address is valid and is not a 169.254.x.x address.",
-          "3 Test layer by layer. Ping the default gateway, then a public IP address, then a domain name. Failure at the gateway means local connection, at the public IP means routing or the firewall, and at the name means DNS.",
-          "4 Reset the connection. Forget and rejoin the Wi-Fi network, renew the IP lease, flush DNS, and reset the network stack. Update the network adapter driver if outdated.",
-          "5 Check the physical layer. For wired problems, swap the cable, try another wall port and another dock, and check the port in the switch management tool.",
-          "6 Try an alternative. Test on another known-good device or another network (for example a mobile hotspot, if policy allows) to see if the fault follows the user or the location.",
-          "7 Confirm stable connection. Verify access to the internet, an internal application, and a file share. Watch for a few minutes to confirm there are no drops."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Multiple users or a whole location affected",
-          "Faulty switch port, wireless access point, or cabling",
-          "Suspected unauthorized device or rogue access point on the network (see WI-10)"
-        ]
-      }
     ]
   },
   "WI-07_VPN_and_Remote_Access.pdf": {
@@ -326,46 +88,6 @@
       "VPN and Remote Access",
       "IT helpdesk",
       "WI-07"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "VPN client fails to connect, or disconnects often",
-          "Connected to the VPN but cannot reach internal sites or file shares",
-          "Remote desktop session refused or very slow",
-          "Certificate or MFA errors at VPN sign-in"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Location and type of home network (home broadband, mobile hotspot, public Wi-Fi)",
-          "VPN client name and version, and the exact error text",
-          "Whether the user can reach the internet and cloud apps without the VPN",
-          "Time of the last successful connection"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Confirm internet access. Verify the user has a working internet connection without the VPN. Restart the home router if needed, and test on another network.",
-          "2 Check the account. Confirm the account is active, not locked, and in the VPN access group. Check MFA registration and look for failed sign-in attempts in the logs.",
-          "3 Check the VPN client. Confirm the client version is current and the profile is correct. Restart the client, then reinstall it if the fault continues.",
-          "4 Check the device. Confirm the date and time are correct, the device certificate is valid, and the device is compliant with security policy.",
-          "5 Rule out local blocks. Look for personal firewalls, third-party antivirus, or a router that blocks the VPN ports. Try another network to compare.",
-          "6 Fix access after connecting. If connected but unable to reach resources, flush DNS, check the assigned VPN IP and routes, and confirm the target service is reachable from the internal network.",
-          "7 Verify and document. Have the user open an internal application and a file share. Share the VPN quick guide and how to report slowness."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "VPN gateway or authentication service errors, or many users failing at once",
-          "Account shows sign-ins from unusual locations (see WI-10)",
-          "Access requested to a restricted network segment (needs approval)"
-        ]
-      }
     ]
   },
   "WI-08_Printer_Scanner_and_Multifunction_Device_Issues.pdf": {
@@ -379,46 +101,6 @@
       "Printer, Scanner and Multifunction Device Issues",
       "IT helpdesk",
       "WI-08"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "Print job stuck in queue, or printer shows Offline",
-          "Printing garbled text, blank pages, or wrong paper size",
-          "Scan to email or scan to folder not working",
-          "User cannot find or add a printer"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Printer name, location, and asset or IP",
-          "Which users and which applications are affected",
-          "Error message on the printer panel or the computer",
-          "Whether the printer works from another computer"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Check the printer. Look at the panel for paper jams, empty paper or toner, open doors, and error codes. Power cycle the device if it is unresponsive.",
-          "2 Check the connection. Confirm the printer has a network link, and ping its IP address. Verify it shows online on the print server.",
-          "3 Clear the queue. Cancel stuck jobs, then restart the print spooler service on the user's computer or the print server.",
-          "4 Fix the driver or mapping. Remove and re-add the printer using the correct driver. Make sure the user is connected to the right queue, not an old or duplicate one.",
-          "5 Test from another device. If another user can print, the fault is on the first computer. If nobody can, the fault is with the printer or the server.",
-          "6 Fix scanning. For scan-to-email or folder, check the address book entry, the SMTP relay or service account password, and the permissions on the destination folder.",
-          "7 Print a test page. Have the user print a test page and a real document, and confirm the output quality."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Hardware faults (fuser, rollers, board) or repeated jams: log a service call with the vendor",
-          "Print server down or affecting many users",
-          "Request for a new printer or a move needs a change request"
-        ]
-      }
     ]
   },
   "WI-09_Access_and_Permission_Requests.pdf": {
@@ -432,45 +114,6 @@
       "Access and Permission Requests",
       "IT helpdesk",
       "WI-09"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "\"You do not have permission\" when opening a file, site, or application",
-          "New role or project needs additional access",
-          "User needs to be added to or removed from a group or list"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Exact resource (path, URL, application, or group name)",
-          "Access level needed: read, edit, or admin",
-          "Business reason and the duration (permanent or temporary)",
-          "Requester's manager and the data owner"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Confirm the requester. Check that the request comes from the user or their manager through the ticket portal, and that the user is an active employee.",
-          "2 Identify the owner. Find the data or application owner in the access register. Access must be approved by the owner, not only by the user's manager.",
-          "3 Obtain approval. Send the approval request to the owner and record the approval in the ticket. Do not grant access on verbal approval alone.",
-          "4 Apply least privilege. Grant only the level requested, using a group where possible rather than direct assignment. Set an expiry date for temporary access.",
-          "5 Check for conflicts. For finance, HR, and other sensitive systems, check segregation-of-duties rules and escalate to the application owner if there is a conflict.",
-          "6 Confirm access. Ask the user to sign out and in again, then open the resource. Allow time for group membership changes to replicate.",
-          "7 Record the change. Note who approved, what was granted, and any expiry date, so the access can be reviewed later."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Requests for administrator or privileged rights",
-          "Owner cannot be identified or does not respond within the approval window",
-          "User claims to have lost access that was never recorded as granted"
-        ]
-      }
     ]
   },
   "WI-10_Security_Incidents_Phishing_Malware_and_Lost_Devices.pdf": {
@@ -484,46 +127,6 @@
       "Security Incidents: Phishing, Malware and Lost Devices",
       "IT helpdesk",
       "WI-10"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "User clicked a link or opened an attachment in a suspicious email",
-          "Antivirus or endpoint alert on a device",
-          "Unexpected password change, MFA prompts the user did not trigger, or odd sent mail",
-          "Laptop, phone, or access badge lost or stolen"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "What happened, when, and what the user did (clicked, entered a password, downloaded a file)",
-          "Sender, subject, and the link or file (get the original message, not a screenshot)",
-          "Device, hostname, and location",
-          "Whether other users received the same message"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Stay calm and act fast. Thank the user for reporting. Tell them not to delete the message or restart the device unless told to, as this may remove evidence.",
-          "2 Raise the incident. Create a security incident ticket at P2 or higher and notify the Security team by the on-call process. Do not wait for the investigation to finish.",
-          "3 Contain the account. If credentials may be exposed, reset the password, revoke active sessions and tokens, and review MFA methods and mailbox forwarding rules.",
-          "4 Contain the device. For malware, isolate the device from the network through the endpoint security tool, or ask the user to disconnect from the network. Do not power off unless told to.",
-          "5 Handle lost or stolen devices. Lock or remotely wipe the device through device management, disable the account sessions, and record the loss time and location. The user should also report theft to the police if applicable.",
-          "6 Check for spread. Search for the same message across mailboxes and remove it. Block the sender, link, or file hash with the Security team.",
-          "7 Inform and record. Tell the user what has been done and what to expect. Record a clear timeline of actions in the ticket."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Always involve the Security team for confirmed compromise, data exposure, or ransomware",
-          "Multiple users affected or evidence of spread: declare a major incident",
-          "Possible personal data breach: notify the Data Protection Officer without delay"
-        ]
-      }
     ]
   },
   "WI-11_Mobile_Devices_and_Mobile_Email.pdf": {
@@ -537,46 +140,6 @@
       "Mobile Devices and Mobile Email",
       "IT helpdesk",
       "WI-11"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "Work email, calendar, or contacts not syncing on the phone",
-          "Cannot enrol the device in device management",
-          "Company app missing or failing to open",
-          "New phone setup, or device is non-compliant and blocked"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Device make, model, and operating system version",
-          "Company-issued or personal device",
-          "Error message or screenshot",
-          "Whether the problem began after a phone update or a password change"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Check eligibility. Confirm the device is on the supported list and the user has approval for mobile access. Personal devices must accept the mobile security policy.",
-          "2 Check basic settings. Confirm mobile data or Wi-Fi works, the operating system is up to date, and the device passcode meets policy.",
-          "3 Check compliance. Open the device management console. A device that is non-compliant (jailbroken, out of date, no passcode) will be blocked from corporate data until it is fixed.",
-          "4 Re-enrol or re-add the account. Remove the work account, restart the device, and add it again through the company portal and authenticator app. Update the saved password after any change.",
-          "5 Fix sync issues. Check that mail, calendar, and contacts sync is on and not paused by battery saver. Clear the app cache if needed.",
-          "6 Restore apps. Install company apps from the company portal. Confirm the app permissions and that the user is signed in with the correct account.",
-          "7 Confirm with the user. Have the user send a test email and open a company app. Remind them to report loss or theft right away (see WI-10)."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Device is lost or stolen (see WI-10)",
-          "Enrolment service errors affecting many users",
-          "Request to exempt a device from policy"
-        ]
-      }
     ]
   },
   "WI-12_Video_Conferencing_and_Collaboration_Tools.pdf": {
@@ -590,46 +153,6 @@
       "Video Conferencing and Collaboration Tools",
       "IT helpdesk",
       "WI-12"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "Cannot join a meeting, or the link does not open",
-          "No sound, echo, or microphone not detected",
-          "Camera not working, or poor video quality",
-          "Screen sharing fails, or files will not sync or open"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Which platform and the meeting link or time",
-          "Whether the issue is audio, video, sharing, or sign-in",
-          "Headset, camera, and browser or app version",
-          "Whether others in the same meeting are affected"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Check the service status. Look at the platform status page. If there is a vendor outage, update the ticket, inform the user, and advise a backup channel such as a phone dial-in.",
-          "2 Check sign-in and version. Confirm the user is signed in with the work account and the app is on the current version. Restart the app or try the web version.",
-          "3 Check audio and video devices. In the app's device settings, select the correct microphone, speaker, and camera. Check the operating system privacy settings allow the app to use them, and that the device is not muted.",
-          "4 Test other connections. Close heavy apps, switch from Wi-Fi to wired, or leave the VPN if the platform allows. Check the user's bandwidth for slow video.",
-          "5 Fix sharing and permissions. For screen sharing, check the meeting policy and operating system screen-recording permissions. For file problems, check the sharing link and the user's permission on the site or folder.",
-          "6 Fix sync errors. For OneDrive or SharePoint sync issues, check the sync client status, free disk space, path length, and invalid file names. Reset the sync client if needed.",
-          "7 Test and confirm. Run a test call with the user, and confirm that the user can be heard, seen, and can share their screen."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Platform-wide outage, or a policy setting needs a change by the collaboration team",
-          "Meeting room equipment faults (raise with facilities or the AV team)",
-          "Data sharing concerns, such as files shared with the wrong people (see WI-10)"
-        ]
-      }
     ]
   },
   "WI-13_Backup_File_Recovery_and_Restore_Requests.pdf": {
@@ -643,47 +166,6 @@
       "Backup, File Recovery and Restore Requests",
       "IT helpdesk",
       "WI-13"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "File or folder deleted by mistake",
-          "A document was saved over with the wrong content",
-          "File is corrupted and will not open",
-          "Mailbox items missing after a clean-up",
-          "A restore of a server or a database is requested"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Full path or location of the file, and its exact name",
-          "Date and time it was last known to be correct",
-          "How it was lost (deleted, overwritten, corrupted, ransomware suspected)",
-          "Who owns the data, and how urgent the need is"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Check the easy options first. Look in the Recycle Bin, the cloud storage recycle bin, and the Deleted Items or Recoverable Items folder. Most losses are recovered here without a restore.",
-          "2 Try version history. In OneDrive, SharePoint, or the file server's Previous Versions, open the history and restore the last good version. Confirm with the user before replacing the current file.",
-          "3 Confirm what is needed. If the data is not in these places, confirm the exact item, location, and point in time. A precise request saves time and avoids restoring the wrong data.",
-          "4 Get approval where required. Restores of shared or sensitive data need approval from the data owner. A restore of a system needs a change record and approval from the service owner.",
-          "5 Run the restore to a safe location. Restore to an alternative location first, never directly over the live data. Check the restored copy with the user before moving it back.",
-          "6 Check for wider problems. If many files have changed or been renamed at once, or extensions look unusual, stop and treat it as a possible ransomware event (see WI-10).",
-          "7 Confirm and record. Ask the user to open the file and confirm that the content is correct. Record the restore point, the source backup, and the time it took."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Backup job failed or the required restore point does not exist",
-          "Large restores, server restores, or database restores",
-          "Signs of ransomware, mass deletion, or malicious activity"
-        ]
-      }
     ]
   },
   "WI-14_Business_Application_and_Line_of_Business_System_Issues.pdf": {
@@ -697,47 +179,6 @@
       "Business Application and Line-of-Business System Issues",
       "IT helpdesk",
       "WI-14"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "Error message on login or when saving a record",
-          "Application is slow or times out",
-          "A report or batch job fails",
-          "Data is missing or displays incorrectly",
-          "A page works for some users but not others"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Name of the application and the function being used",
-          "Exact error message, screenshot, and the time it occurred",
-          "Number of users affected and which departments",
-          "Whether it worked before, and any recent change or upgrade"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Check for known issues. Look in the incident list and the status page for a known outage or planned maintenance. If one exists, link the ticket and give the user the update.",
-          "2 Establish the scope. Ask whether colleagues have the same problem. One user points to the account or device. Many users point to the application or infrastructure.",
-          "3 Reproduce the fault. Try the same steps on your own test account or the user's device with remote assistance. Note exactly where it fails.",
-          "4 Check the user's account. Verify the account is active and the user has the right role, licence, and permissions. Check for recent changes to roles.",
-          "5 Check the client side. Clear the browser cache, try another browser, test from another device, and check for required plug-ins or client updates.",
-          "6 Capture evidence for support. Record error text, timestamps, user IDs, transaction names, and screenshots. Include steps to reproduce. Good evidence shortens the fix time.",
-          "7 Escalate and keep the user informed. Pass the ticket to the application support team with the evidence. Agree on a workaround if there is one, and update the user at the agreed intervals."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Multiple users affected, or a critical process (payroll, month-end close, order entry) is blocked",
-          "Data appears wrong, lost, or exposed (raise a security and data incident)",
-          "The fault started right after a release or change"
-        ]
-      }
     ]
   },
   "WI-15_Telephony_Desk_Phones_and_Softphone_Issues.pdf": {
@@ -751,47 +192,6 @@
       "Telephony, Desk Phones and Softphone Issues",
       "IT helpdesk",
       "WI-15"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "Phone shows no dial tone or 'registering'",
-          "Calls drop, crackle, or have one-way audio",
-          "Voicemail not working or not delivering to email",
-          "Call forwarding or hunt group not working",
-          "Softphone cannot sign in"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "User, extension or number, and location",
-          "Desk phone model or softphone application",
-          "Whether inbound, outbound, or both are affected",
-          "Time of the failed calls, and the numbers involved"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Check for a wider fault. See if other phones in the same area or building are affected, and check the telephony monitoring. If many are, escalate to the Telephony team at once.",
-          "2 Check power and connection. Confirm a desk phone has power (network port or adapter) and a network cable. Try another port or a known-good cable.",
-          "3 Restart the device. Power cycle the phone. For a softphone, sign out, close the app, and sign back in. Check the user's licence and extension assignment.",
-          "4 Check audio devices. For one-way audio or poor quality, check the headset, volume, and the audio device selected. Test with another headset.",
-          "5 Check network quality. Poor audio is often caused by network congestion or Wi-Fi. Test on a wired connection and check for VPN use, which can add delay.",
-          "6 Check call settings. Confirm call forwarding, do-not-disturb, hunt group membership, and voicemail settings in the telephony portal.",
-          "7 Make a test call. Place inbound and outbound calls with the user. Confirm voicemail and forwarding if relevant."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Many phones or a whole site affected, or calls to emergency numbers cannot be made",
-          "Contact centre queue or hunt group fault",
-          "Trunk, number porting, or carrier faults"
-        ]
-      }
     ]
   },
   "WI-16_Meeting_Room_Display_and_Audio_Visual_Equipment.pdf": {
@@ -805,47 +205,6 @@
       "Meeting Room, Display and Audio-Visual Equipment",
       "IT helpdesk",
       "WI-16"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "Room display shows no signal",
-          "Conferencing system will not start a meeting",
-          "No sound, echo, or feedback in the room",
-          "Laptop will not connect to the screen",
-          "Touch panel is frozen or shows an error"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Room name and building, and the meeting start time",
-          "Equipment affected and any messages on the screen",
-          "Whether the problem is with a laptop connection or the room system",
-          "Who is hosting, and whether the meeting has external guests"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Prioritize by meeting time. If a meeting is imminent, get a quick workaround ready first: join from a laptop and use the room display or a phone dial-in.",
-          "2 Check power and cables. Confirm the display, codec, and speakers are on and the right input is selected. Reseat HDMI, USB, and network cables.",
-          "3 Check the room system. Look at the touch panel and the room system status in the management portal. Restart the room system if it is offline.",
-          "4 Check the laptop connection. Try another cable or adapter, set display mode to extend or duplicate, and check the resolution. Try a second laptop to separate laptop and room faults.",
-          "5 Check audio. Check that microphones are not muted and that the right speaker and microphone are chosen. Reduce echo by lowering the volume or muting unused devices.",
-          "6 Check network and sign-in. Confirm the room account is signed in and that the system has a network connection. Check the calendar link if meetings do not appear.",
-          "7 Test and record. Run a short test call with the user. Record the fault and the fix on the room's equipment record."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Room system is offline and cannot be restored remotely",
-          "Hardware fault (display, camera, microphone, panel) that needs a vendor or AV engineer",
-          "Repeated faults in the same room, which may indicate a design or network issue"
-        ]
-      }
     ]
   },
   "WI-17_Employee_Offboarding_and_Account_Termination.pdf": {
@@ -859,46 +218,6 @@
       "Employee Offboarding and Account Termination",
       "IT helpdesk",
       "WI-17"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "HR notice of a resignation or end of contract",
-          "Manager requests removal of access for a leaver",
-          "Urgent termination request from HR or Security",
-          "Access remains after someone changes teams"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Name, employee ID, last working day, and time of access removal",
-          "Whether the termination is standard, urgent, or sensitive",
-          "Manager and nominated person for mailbox and file handover",
-          "Equipment issued and any pending returns"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Confirm the request. Accept offboarding requests only from HR or the line manager through the approved process. Confirm the dates and whether this is an urgent security removal.",
-          "2 Time the access removal. For standard exits, schedule account disablement for the end of the last working day. For urgent cases, disable immediately and revoke active sessions.",
-          "3 Disable and secure the account. Disable sign-in, reset the password, revoke sessions and tokens, remove MFA methods, and remove the user from groups and distribution lists.",
-          "4 Handle mailbox and files. Set an out-of-office or forwarding to the manager as approved. Convert to a shared mailbox or apply retention as per policy. Transfer file ownership and cloud storage content to the manager.",
-          "5 Recover equipment. Arrange the return of the laptop, phone, tokens, and badge. Record the asset tags, wipe devices after data has been secured, and update the register.",
-          "6 Remove licences and external access. Remove software licences, application accounts, VPN access, and any third-party access. Check shared accounts and update shared passwords the person knew.",
-          "7 Confirm and record. Verify the account is disabled and has no active sessions. Attach the completed checklist and the approvals, and set the deletion date according to the retention policy."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Termination involves a dispute, investigation, or legal hold (involve HR, Legal, and Security)",
-          "Evidence of data copying or unusual activity before departure",
-          "Equipment is not returned, or a device is lost"
-        ]
-      }
     ]
   },
   "WI-18_Hardware_Requests_Asset_Management_and_Returns.pdf": {
@@ -912,47 +231,6 @@
       "Hardware Requests, Asset Management and Returns",
       "IT helpdesk",
       "WI-18"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "User needs a new laptop, monitor, phone, or accessory",
-          "Device is due for replacement or beyond repair",
-          "Equipment is moving between users or locations",
-          "Device returned by a leaver or an unused device found",
-          "Asset record does not match the device in use"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "User, department, cost centre, and manager approval",
-          "Equipment needed, quantity, and business reason",
-          "Required date, and location for delivery",
-          "Asset tag, serial number, and current user for replacements and returns"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Check the standard. Compare the request with the hardware standard for the role. Standard items can be approved by the manager. Non-standard items need further approval and a business case.",
-          "2 Check stock and warranty. Look in stock for suitable equipment before ordering. For a replacement, check the warranty status and whether a repair is possible.",
-          "3 Get approvals and raise the order. Attach the manager's approval and the cost centre. Raise a purchase request if stock is not available, and tell the user the expected delivery time.",
-          "4 Prepare the equipment. Image and enrol the device, install the standard software, apply encryption and security policies, and label it with the asset tag.",
-          "5 Deliver and hand over. Hand the device to the user, check their identity, and record the handover. Show them how to sign in and where to get help. Get a signature or an electronic acknowledgement.",
-          "6 Update the asset register. Record the serial number, asset tag, user, location, status, and purchase and warranty dates. Mark old devices as returned or pending disposal.",
-          "7 Process returns and disposal. Collect old equipment, back up data if needed, securely wipe the drive, and record the wipe. Dispose of or recycle through the approved supplier and keep the certificate."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Request exceeds the budget or the hardware standard",
-          "Equipment is lost, stolen, or not returned (see WI-10)",
-          "Stock levels are too low to meet demand"
-        ]
-      }
     ]
   },
   "WI-19_Operating_System_Updates_Patching_and_Restart_Issues.pdf": {
@@ -966,47 +244,6 @@
       "Operating System Updates, Patching and Restart Issues",
       "IT helpdesk",
       "WI-19"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "Update stuck or fails with an error code",
-          "Device keeps asking to restart",
-          "Device flagged as non-compliant for missing updates",
-          "Problems started right after an update",
-          "Update takes too long or uses too much bandwidth"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "Hostname, operating system version, and build number",
-          "Update name or KB number, and the error code",
-          "When the update started, and how long the device has been up",
-          "Whether other devices have the same issue"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Check the scope. Check the update management console. If many devices fail the same update, treat it as a possible bad release, stop the rollout, and escalate to the Endpoint team.",
-          "2 Check the basics. Check free disk space (at least 15 GB is a good minimum), battery or power, and the network connection. Restart the device to complete any pending update.",
-          "3 Review the error. Look at the update history and the error code. Search the knowledge base and the vendor documentation for the code.",
-          "4 Run the built-in troubleshooter. Run the update troubleshooter, reset the update components, and check the system file integrity. Retry the installation.",
-          "5 Clear a blocked update. Check for third-party security tools, VPN, or proxy that block the update. Install the update manually from the update catalogue if needed.",
-          "6 Roll back if necessary. If the device is unstable after an update, uninstall the update or restore from a restore point. Pause the update on that device and report to the Endpoint team.",
-          "7 Confirm compliance. Check the device reports as compliant in the console. Tell the user when to restart and how to schedule restarts outside working time."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Many devices fail the same update",
-          "Update causes data loss, boot failure, or business application faults",
-          "Critical security patches cannot be installed within the required timeframe"
-        ]
-      }
     ]
   },
   "WI-20_Web_Browser_Intranet_and_Web_Application_Problems.pdf": {
@@ -1020,47 +257,6 @@
       "Web Browser, Intranet and Web Application Problems",
       "IT helpdesk",
       "WI-20"
-    ],
-    "sections": [
-      {
-        "heading": "Common symptoms",
-        "items": [
-          "Page will not load or times out",
-          "Certificate or 'connection is not private' warning",
-          "Endless sign-in loop with single sign-on",
-          "Page layout broken or buttons do nothing",
-          "A site is blocked by the web filter"
-        ]
-      },
-      {
-        "heading": "Information to collect",
-        "items": [
-          "The full address (URL) and the exact error message",
-          "Browser and version, and whether other browsers show the same",
-          "Whether it works on another device, network, or for another user",
-          "When it last worked, and any recent change"
-        ]
-      },
-      {
-        "heading": "Resolution steps",
-        "items": [
-          "1 Check the service. Test the site from your own device and check the status page. If the site is down for everyone, link to the incident and update the user.",
-          "2 Test another browser. Try the site in a second browser and in a private window. This separates a browser fault from an account or site fault.",
-          "3 Clear cache and cookies. Clear the cached files and cookies for the site, restart the browser, and try again. Disable extensions and test.",
-          "4 Check date, time and certificate. Check the device date and time are right, and read the certificate warning. A wrong clock or an untrusted certificate is a common cause. Do not tell users to bypass real warnings.",
-          "5 Check sign-in and policies. For sign-in loops, clear cookies, check the account and MFA status, and test with another browser profile. Check for conflicting accounts signed in at the same time.",
-          "6 Check the web filter and network. If the site is blocked, check the category and the business need. Request an unblock through the approved process rather than disabling the filter. Test on another network.",
-          "7 Update or reset the browser. Update the browser to the current version, reset it to defaults if needed, and confirm that the user's bookmarks and passwords are synced first."
-        ]
-      },
-      {
-        "heading": "Escalate when",
-        "items": [
-          "Certificate errors on internal or company sites affecting many users",
-          "Suspected malicious site, redirect, or browser hijack (see WI-10)",
-          "Web filter change requests that need Security approval"
-        ]
-      }
     ]
   }
 }

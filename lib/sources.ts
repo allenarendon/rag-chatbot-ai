@@ -1,10 +1,5 @@
 import catalog from '../data/sources.json';
 
-export type SourceSection = {
-  heading: string;
-  items: string[];
-};
-
 export type SourceEntry = {
   title: string;
   documentType: string;
@@ -13,7 +8,6 @@ export type SourceEntry = {
   searchable: boolean;
   summary: string;
   topics: string[];
-  sections: SourceSection[];
 };
 
 export const sourceCatalog = catalog as Record<string, SourceEntry>;
@@ -35,10 +29,8 @@ export function catalogPrompt(): string {
       const availability = entry.searchable
         ? 'Search this document with getInformation.'
         : 'This PDF has no searchable text. Answer from this catalog entry and do not expect getInformation to return its pages.';
-      const sections = entry.sections
-        .map((section) => `  ${section.heading}: ${section.items.join('; ')}`)
-        .join('\n');
-      return `- ${entry.title} (${filename})${label ? ` [${label}]` : ''}\n  ${entry.summary} ${availability}\n${sections}`;
+      const topics = entry.topics.length ? ` Topics: ${entry.topics.join(', ')}.` : '';
+      return `- ${entry.title} (${filename})${label ? ` [${label}]` : ''}\n  ${entry.summary}${topics} ${availability}`;
     })
     .join('\n');
 }

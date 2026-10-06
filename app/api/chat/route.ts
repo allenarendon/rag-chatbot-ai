@@ -2,40 +2,50 @@
  * Final Route Handler — Step 4 of Section 4 (RAG-as-tool-call) +
  * the source metadata used by Step 5's UI.
  *
- * The model decides whether to call the getInformation tool. When it does,
- * the tool runs vector search and returns chunk text + page + score. The
- * client renders those as collapsible sources under the assistant message.
+ * Every question searches the work instructions first. The tool result is
+ * written into the chat stream as Sources, then the answer is streamed.
  */
 import { openai } from '@ai-sdk/openai';
-import { streamText, tool, embed } from 'ai';
+import {
+  appendResponseMessages,
+  createDataStreamResponse,
+  embed,
+  formatDataStreamPart,
+  generateText,
+  streamText,
+  tool,
+  type Message,
+} from 'ai';
 import { Index } from '@upstash/vector';
 import { z } from 'zod';
 import { catalogPrompt, sourceEntry } from '@/lib/sources';
 
 const index = new Index();
 
-export async function POST(req: Request) {
-  const { messages } = await req.json();
+const system =
+  'You are AI-Tee, a helpful, friendly, and witty IT helpdesk assistant. ' +
+  'Help with everyday IT concerns: accounts and passwords, email, Wi-Fi, VPN, printers, software, hardware, error messages, and what to try before opening a ticket. ' +
+  'Sound like a sharp colleague: warm, clear, and lightly funny. Never mock the person. Explain jargon in plain language. ' +
+  'Lead with the most useful next step, then the short why. ' +
+  'The indexed documents are IT helpdesk work instructions. ' +
+  'Call getInformation before you answer, so the user can open Sources and see the top matching passages. ' +
+  'Follow the steps, identity checks, and escalation rules in what the tool returns. ' +
+  'If those documents do not cover the question, say so and give general IT helpdesk guidance rather than guessing. ' +
+  'Do not cite a document that does not actually answer the question. ' +
+  'If the question is outside IT helpdesk work, reply in one friendly line and invite an IT question. ' +
+  'Write answers in Markdown that is easy to scan: short paragraphs, ' +
+  'and a bullet or numbered list when you list steps, checks, or options. ' +
+  'Put each list item on its own line. ' +
+  'These are the indexed documents. Use them to choose the instruction that fits:\n' +
+  catalogPrompt() +
+  '\nWhen you answer, name the document title returned by the tool.';
 
-  const result = streamText({
+export async function POST(req: Request) {
+  const { messages } = (await req.json()) as { messages: Message[] };
+
+  const retrieval = await generateText({
     model: openai('gpt-4o-mini'),
-    system:
-      'You are AI-Tee, a helpful, friendly, and witty IT helpdesk assistant. ' +
-      'Help with everyday IT concerns: accounts and passwords, email, Wi-Fi, VPN, printers, software, hardware, error messages, and what to try before opening a ticket. ' +
-      'Sound like a sharp colleague: warm, clear, and lightly funny. Never mock the person. Explain jargon in plain language. ' +
-      'Lead with the most useful next step, then the short why. ' +
-      'The indexed documents are IT helpdesk work instructions. ' +
-      'Call getInformation before you answer, so the user can open Sources and see the top matching passages. ' +
-      'Follow the steps, identity checks, and escalation rules in what the tool returns. ' +
-      'If those documents do not cover the question, say so and give general IT helpdesk guidance rather than guessing. ' +
-      'Do not cite a document that does not actually answer the question. ' +
-      'If the question is outside IT helpdesk work, reply in one friendly line and invite an IT question. ' +
-      'Write answers in Markdown that is easy to scan: short paragraphs, ' +
-      'and a bullet or numbered list when you list steps, checks, or options. ' +
-      'Put each list item on its own line. ' +
-      'These are the indexed documents. Use them to choose the instruction that fits:\n' +
-      catalogPrompt() +
-      '\nWhen you answer, name the document title returned by the tool.',
+    system,
     messages,
     tools: {
       getInformation: tool({
@@ -71,14 +81,40 @@ export async function POST(req: Request) {
         },
       }),
     },
-    maxSteps: 3,
-    prepareStep: async ({ stepNumber }) => {
-      if (stepNumber === 0) {
-        return { toolChoice: { type: 'tool', toolName: 'getInformation' } };
-      }
-      return { toolChoice: 'none' };
-    },
+    toolChoice: { type: 'tool', toolName: 'getInformation' },
+    maxSteps: 1,
   });
 
-  return result.toDataStreamResponse();
+  return createDataStreamResponse({
+    execute(dataStream) {
+      for (const call of retrieval.toolCalls) {
+        dataStream.write(
+          formatDataStreamPart('tool_call', {
+            toolCallId: call.toolCallId,
+            toolName: call.toolName,
+            args: call.args,
+          }),
+        );
+      }
+      for (const callResult of retrieval.toolResults) {
+        dataStream.write(
+          formatDataStreamPart('tool_result', {
+            toolCallId: callResult.toolCallId,
+            result: callResult.result,
+          }),
+        );
+      }
+
+      const answer = streamText({
+        model: openai('gpt-4o-mini'),
+        system,
+        messages: appendResponseMessages({
+          messages,
+          responseMessages: retrieval.response.messages,
+        }),
+        toolChoice: 'none',
+      });
+      answer.mergeIntoDataStream(dataStream);
+    },
+  });
 }
