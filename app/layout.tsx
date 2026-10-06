@@ -10,6 +10,9 @@ const geist = Geist({
 export const metadata: Metadata = {
   title: 'AI-Tee',
   description: 'Your AI buddy for IT helpdesk concerns',
+  icons: {
+    icon: [{ url: '/aitee-logo.jpg', type: 'image/jpeg' }],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

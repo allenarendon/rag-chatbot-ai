@@ -307,8 +307,11 @@ export default function Page() {
       <main className="mx-auto flex w-full max-w-3xl min-h-0 flex-1 flex-col px-6 py-6">
         <ul ref={listRef} className="mb-6 min-h-0 flex-1 space-y-4 overflow-y-auto">
           {chatMessages.map((m, index) => {
+            const replyInProgress = busy && index === chatMessages.length - 1;
             const sourceGroups =
-              m.role === 'assistant' ? (savedSources.current.get(index) ?? []) : [];
+              m.role === 'assistant' && !replyInProgress
+                ? (savedSources.current.get(index) ?? [])
+                : [];
             return (
             <li
               key={`${m.role}-${index}`}
@@ -371,7 +374,7 @@ export default function Page() {
           </button>
         </form>
         <p className="mt-3 text-center text-xs text-slate-500">
-          General IT guidance. Confirm anything that changes access, data, or company policy.
+          This is AI-generated. Please confirm anything that changes access, data, or company policy.
         </p>
       </main>
     </div>

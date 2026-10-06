@@ -2,8 +2,9 @@
  * Final Route Handler — Step 4 of Section 4 (RAG-as-tool-call) +
  * the source metadata used by Step 5's UI.
  *
- * Every question searches the work instructions first. The tool result is
+ * IT helpdesk questions search the work instructions first. Those hits are
  * written into the chat stream as Sources, then the answer is streamed.
+ * Questions outside that work are answered directly, with no Sources.
  */
 import { openai } from '@ai-sdk/openai';
 import {
@@ -28,11 +29,11 @@ const system =
   'Sound like a sharp colleague: warm, clear, and lightly funny. Never mock the person. Explain jargon in plain language. ' +
   'Lead with the most useful next step, then the short why. ' +
   'The indexed documents are IT helpdesk work instructions. ' +
-  'Call getInformation before you answer, so the user can open Sources and see the top matching passages. ' +
+  'Call getInformation only for an IT helpdesk question, before you answer, so the user can open Sources and see the matching passages. ' +
   'Follow the steps, identity checks, and escalation rules in what the tool returns. ' +
   'If those documents do not cover the question, say so and give general IT helpdesk guidance rather than guessing. ' +
   'Do not cite a document that does not actually answer the question. ' +
-  'If the question is outside IT helpdesk work, reply in one friendly line and invite an IT question. ' +
+  'If the question is outside IT helpdesk work, do not call getInformation. Reply in one friendly line and invite an IT question. ' +
   'Write answers in Markdown that is easy to scan: short paragraphs, ' +
   'and a bullet or numbered list when you list steps, checks, or options. ' +
   'Put each list item on its own line. ' +
@@ -50,7 +51,7 @@ export async function POST(req: Request) {
     tools: {
       getInformation: tool({
         description:
-          'Search the indexed IT helpdesk work instructions and return the top matching passages. Call this before answering so those passages can be shown as Sources.',
+          'Search the indexed IT helpdesk work instructions and return the top matching passages. Call this only for an IT helpdesk question, before answering, so those passages can be shown as Sources. Do not call it for anything else.',
         parameters: z.object({
           query: z
             .string()
@@ -81,9 +82,27 @@ export async function POST(req: Request) {
         },
       }),
     },
-    toolChoice: { type: 'tool', toolName: 'getInformation' },
     maxSteps: 1,
   });
+
+  if (retrieval.toolCalls.length === 0) {
+    return createDataStreamResponse({
+      execute(dataStream) {
+        dataStream.write(formatDataStreamPart('text', retrieval.text));
+        dataStream.write(
+          formatDataStreamPart('finish_step', {
+            finishReason: 'stop',
+            isContinued: false,
+          }),
+        );
+        dataStream.write(
+          formatDataStreamPart('finish_message', {
+            finishReason: 'stop',
+          }),
+        );
+      },
+    });
+  }
 
   return createDataStreamResponse({
     execute(dataStream) {
