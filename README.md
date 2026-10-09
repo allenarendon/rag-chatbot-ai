@@ -37,6 +37,8 @@ copy .env.example .env.local
 
 Edit `.env.local` and set `OPENAI_API_KEY`, `UPSTASH_VECTOR_REST_URL`, and `UPSTASH_VECTOR_REST_TOKEN`.
 
+Copy `LANGSMITH_TRACING`, `LANGSMITH_API_KEY`, and `LANGSMITH_PROJECT` into `.env.local` as well. The project name is `ai-tee`. These stay server-only. Restart `npm run dev` after you change them. When tracing is on, prompts, retrieved passages, and completions are sent to LangSmith.
+
 Seed the index once, and again whenever a PDF in `data/` is added, replaced, or removed:
 
 ```bash
@@ -85,10 +87,13 @@ vercel
 vercel env add OPENAI_API_KEY
 vercel env add UPSTASH_VECTOR_REST_URL
 vercel env add UPSTASH_VECTOR_REST_TOKEN
+vercel env add LANGSMITH_TRACING
+vercel env add LANGSMITH_API_KEY
+vercel env add LANGSMITH_PROJECT
 vercel --prod
 ```
 
-Seed locally once per index. The hosted app only needs the environment variables.
+Seed locally once per index. The hosted app needs the same environment variables, including the three LangSmith variables (`LANGSMITH_PROJECT` is `ai-tee`). When tracing is on, prompts, retrieved passages, and completions are sent to LangSmith.
 
 ## Common errors
 

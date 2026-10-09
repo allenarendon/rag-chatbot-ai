@@ -15,8 +15,16 @@ import zlib from 'node:zlib';
 // Next.js reads .env.local automatically; this script does not.
 loadEnv({ path: path.join(process.cwd(), '.env.local') });
 import { Index } from '@upstash/vector';
-import { embedMany } from 'ai';
+import * as ai from 'ai';
 import { openai } from '@ai-sdk/openai';
+import { traceable } from 'langsmith/traceable';
+import { wrapAISDK } from 'langsmith/experimental/vercel';
+
+const { embedMany: sdkEmbedMany } = wrapAISDK(ai);
+const embedMany = traceable(sdkEmbedMany, {
+  name: 'embedMany',
+  run_type: 'embedding',
+});
 // pdf-parse uses CommonJS; default-import the parser fn
 import pdfParse from 'pdf-parse';
 import { embeddingPrefix, sourceEntry } from './sources';
@@ -30,8 +38,8 @@ process.on('unhandledRejection', (reason) => {
 });
 
 const DATA_DIR = path.join(process.cwd(), 'data');
-const CHUNK_SIZE = 800;
-const CHUNK_OVERLAP = 100;
+const CHUNK_SIZE = 2000;
+const CHUNK_OVERLAP = 400;
 // Stay under OpenAI's 300k-token cap per embeddings request.
 const EMBED_TOKEN_BUDGET = 200_000;
 const UPSERT_BATCH = 100;
@@ -211,36 +219,43 @@ async function main() {
   const index = new Index();
   console.log('Clearing the vector index so sources match the current documents…');
   await index.reset();
-  const batches = batchChunks(chunks);
-  console.log(`Embedding ${chunks.length} chunks in ${batches.length} batch(es)…`);
-  for (let b = 0; b < batches.length; b++) {
-    const batch = batches[b];
-    console.log(`Embedding batch ${b + 1}/${batches.length} (${batch.length} chunks)…`);
-    const { embeddings } = await embedMany({
-      model: openai.embedding('text-embedding-3-small'),
-      values: batch.map((c) => `${embeddingPrefix(c.source)}${c.text}`),
-    });
-    const records = batch.map((c, i) => {
-      const entry = sourceEntry(c.source);
-      return {
-        id: `${c.source}#${c.index}`,
-        vector: embeddings[i],
-        metadata: {
-          text: c.text,
-          page: c.page,
-          source: c.source,
-          title: entry?.title ?? c.source,
-          topics: entry?.topics.join(', ') ?? '',
-        },
-      };
-    });
-    console.log(`Upserting batch ${b + 1}/${batches.length}…`);
-    for (let i = 0; i < records.length; i += UPSERT_BATCH) {
-      await index.upsert(records.slice(i, i + UPSERT_BATCH));
-    }
-  }
+  await seedWorkInstructions(chunks, index);
   console.log('✅ Done. Run `npm run dev` and chat at http://localhost:3000');
 }
+
+const seedWorkInstructions = traceable(
+  async (chunks: Chunk[], index: Index) => {
+    const batches = batchChunks(chunks);
+    console.log(`Embedding ${chunks.length} chunks in ${batches.length} batch(es)…`);
+    for (let b = 0; b < batches.length; b++) {
+      const batch = batches[b];
+      console.log(`Embedding batch ${b + 1}/${batches.length} (${batch.length} chunks)…`);
+      const { embeddings } = await embedMany({
+        model: openai.embedding('text-embedding-3-small'),
+        values: batch.map((c) => `${embeddingPrefix(c.source)}${c.text}`),
+      });
+      const records = batch.map((c, i) => {
+        const entry = sourceEntry(c.source);
+        return {
+          id: `${c.source}#${c.index}`,
+          vector: embeddings[i],
+          metadata: {
+            text: c.text,
+            page: c.page,
+            source: c.source,
+            title: entry?.title ?? c.source,
+            topics: entry?.topics.join(', ') ?? '',
+          },
+        };
+      });
+      console.log(`Upserting batch ${b + 1}/${batches.length}…`);
+      for (let i = 0; i < records.length; i += UPSERT_BATCH) {
+        await index.upsert(records.slice(i, i + UPSERT_BATCH));
+      }
+    }
+  },
+  { name: 'seed-work-instructions', run_type: 'chain' },
+);
 
 main().catch((e) => {
   console.error(e);
